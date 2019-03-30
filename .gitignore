@@ -5,7 +5,6 @@
 npm
 npm-debug.log
 node_modules/
-
 package-lock.json
 
 pids
@@ -25,4 +24,5 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
-
+public/bundle.js
+public/0c768d55814c915b5335a078526e6afc.png
