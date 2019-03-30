@@ -18,7 +18,6 @@ app.get('/api', (req, res) => {
   Result.find()
   .then(results => res.send(results));
   // res.send('hello from navbar get')
-  // test
 })
 
 app.listen(port, () => {
