@@ -607,7 +607,7 @@ const seedData = [
 const seedFunction = () => {
     Result.insertMany(seedData)
         .then(() => {
-            console.log('database seeded');
+            console.log('~~~~~~~~~~ Database seeded ~~~~~~~~~~');
             mongoose.connection.close(); // same as ctrl+c in node
         })
         .catch(error => console.log(error))
