@@ -1,17 +1,40 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "opentable_navbar",
+  "description": "OpenTable NavBar",
+  "author": "Liezel Manalo",
   "engines": {
     "node": ">=6.13.0"
   },
+  "main": "server/index.js",
   "scripts": {
+    "start": "nodemon server/index.js",
+    "test": "mocha test",
+    "build": "webpack -d --watch",
+    "seed": "node database/seed.js"
+  },
+  "license": "UNLICENSED",
+  "repository": "https://github.com/hrla28-open-table-app/navbar",
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
   },
   "dependencies": {
-  },
-  "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "acorn": "^6.1.1",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "css-loader": "^2.1.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.19",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10",
+    "react": "^16.8.4",
+    "react-calendar": "^2.18.1",
+    "react-dom": "^16.8.4",
+    "style-loader": "^0.23.1",
+    "webpack-combine-loaders": "^2.0.4"
   }
 }
