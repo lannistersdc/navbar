@@ -14,10 +14,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/api', (req, res) => {
-  Result.find()
+app.get('/restaurant/:restaurantId', (req, res) => {
+  let { restaurantId } = req.params;
+  Result.findOne({ restaurantId })
   .then(results => res.send(results));
-  // res.send('hello from navbar get')
 })
 
 app.listen(port, () => {
