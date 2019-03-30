@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Logo from './Logo.jsx'
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -12,7 +13,15 @@ export default class NavBar extends Component {
   render() {
     return (
       <div>
-        Hello from react
+
+        <div>
+          Hello from react
+        </div>
+
+        <div>
+          <Logo />
+        </div>
+        
       </div>
     )
   }
