@@ -15,10 +15,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/api', (req, res) => {
-  // let { restaurantName, restaurantCuisine, location } = req.body;
-  // Result.find({ name: new RegExp('restaurantName', 'i') }, 'restaurantName restaurantCuisine location')
-  // .then(results => res.send(results));
-  res.send('hello from navbar get')
+  Result.find()
+  .then(results => res.send(results));
+  // res.send('hello from navbar get')
 })
 
 app.listen(port, () => {
