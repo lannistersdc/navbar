@@ -6,7 +6,7 @@ const seedData = [
     restaurantId: 1,
     restaurantName: "The Factory Kitchen",
     restaurantCuisine: "Italian",
-    location: "Agoura Hills / Westlake Village, San Fernando Valley"
+    location: "Downtown, Downtown / South and East LA"
   },
   {
     restaurantId: 2,

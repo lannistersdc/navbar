@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Logo from './Logo.jsx';
+import Breadcrumb from './Breadcrumb.jsx';
 import axios from 'axios'
 
 export default class NavBar extends Component {
@@ -34,11 +35,16 @@ export default class NavBar extends Component {
 
   render() {
     let { restaurantName, restaurantCuisine, location } = this.state;
+    location = location.split(', ');
     return (
       <div>
 
         <div>
           <Logo />
+        </div>
+
+        <div>
+          <Breadcrumb region={location[1]} city={location[0]}/>
         </div>
 
         <div>
