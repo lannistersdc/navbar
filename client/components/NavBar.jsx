@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Logo from './Logo.jsx';
 import Breadcrumb from './Breadcrumb.jsx';
-import LocationPicker from './LocationPicker.jsx'
+import LocationPicker from './LocationPicker.jsx';
+import Search from './Search.jsx'
 import axios from 'axios'
 
 export default class NavBar extends Component {
@@ -50,6 +51,10 @@ export default class NavBar extends Component {
         
         <div className="location-picker">
           <LocationPicker />
+        </div>
+
+        <div className="search">
+          <Search />
         </div>
 
         <br /><br />
