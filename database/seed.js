@@ -600,7 +600,7 @@ const seedData = [
     restaurantId: 100,
     restaurantName: "Southside",
     restaurantCuisine: "American",
-    location: "San Diego, CA"
+    location: "Corona, Inland Empire"
   }
 ]
 
@@ -614,3 +614,8 @@ const seedFunction = () => {
 }
 
 seedFunction()
+// let metros = (data) => {
+//   data.map(res => res.location.split(', '));
+// }
+
+// metros(seedData)

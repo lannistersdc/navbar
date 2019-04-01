@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Logo from './Logo.jsx';
 import Breadcrumb from './Breadcrumb.jsx';
+import LocationPicker from './LocationPicker.jsx'
 import axios from 'axios'
 
 export default class NavBar extends Component {
@@ -43,11 +44,17 @@ export default class NavBar extends Component {
           <Logo />
         </div>
 
-        <div>
+        <div className="breadcrumb">
           <Breadcrumb region={location[1]} city={location[0]}/>
         </div>
+        
+        <div className="location-picker">
+          <LocationPicker />
+        </div>
 
-        <div>
+        <br /><br />
+
+        <div className="resinfo">
           Name: {restaurantName}
           <br />
           Cuisine: {restaurantCuisine}
