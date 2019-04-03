@@ -14,10 +14,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/api', (req, res) => {
+app.get('/restaurant', (req, res) => {
   Result.find()
+  .sort( { restaurantId: -1 } )
   .then(results => res.send(results));
-  // res.send('hello from navbar get')
+})
+
+app.get('/restaurant/:restaurantId', (req, res) => {
+  let { restaurantId } = req.params;
+  Result.findOne({ restaurantId })
+  .then(results => res.send(results));
 })
 
 app.listen(port, () => {

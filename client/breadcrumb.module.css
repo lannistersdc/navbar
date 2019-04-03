@@ -1,0 +1,35 @@
+/* Style the list */
+.breadcrumb {
+  background-color: #fff!important;
+  height: 2rem;
+  line-height: 1.9rem;
+  font-size: .75rem;
+  border-top: 1px solid rgba(0,0,0,.08)!important;
+  border-bottom: none!important;
+  padding: 0 1.25rem
+}
+
+/* Display list items side by side */
+.breadcrumb li {
+  display: inline;
+  font-size: 15px;
+}
+
+/* Add a color to all links inside the list */
+.breadcrumb li a {
+  color: #237b98;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+

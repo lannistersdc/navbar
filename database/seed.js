@@ -6,7 +6,7 @@ const seedData = [
     restaurantId: 1,
     restaurantName: "The Factory Kitchen",
     restaurantCuisine: "Italian",
-    location: "Agoura Hills / Westlake Village, San Fernando Valley"
+    location: "Downtown, Downtown / South and East LA"
   },
   {
     restaurantId: 2,
@@ -600,7 +600,7 @@ const seedData = [
     restaurantId: 100,
     restaurantName: "Southside",
     restaurantCuisine: "American",
-    location: "San Diego, CA"
+    location: "Corona, Inland Empire"
   }
 ]
 
@@ -614,3 +614,8 @@ const seedFunction = () => {
 }
 
 seedFunction()
+// let metros = (data) => {
+//   data.map(res => res.location.split(', '));
+// }
+
+// metros(seedData)
