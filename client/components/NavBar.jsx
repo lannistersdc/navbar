@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import Logo from './Logo.jsx';
 import Breadcrumb from './Breadcrumb.jsx';
-import LocationPicker from './LocationPicker.jsx'
-import axios from 'axios'
+import LocationPicker from './LocationPicker.jsx';
+import Search from './Search.jsx';
+import GuestView from './GuestView.jsx';
+import UserView from './UserView.jsx';
+import axios from 'axios';
 
 export default class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoggedIn: true,
+      restaurantId: null,
       restaurantName: '',
       restaurantCuisine: '',
       location: ''
@@ -17,16 +22,18 @@ export default class NavBar extends Component {
 
   componentDidMount() {
     // console.log(this.props.restaurantId)
-    this.fetchRestaurant();
+    let restaurantId = this.state.restaurantId ? this.state.restaurantId : 1;
+    this.fetchRestaurant(restaurantId);
+    // determine if user is logged in or not
   }
 
-  fetchRestaurant() {
-    let id = this.props.restaurantId;
+  fetchRestaurant(restaurantId) {
     axios
-    .get(`/restaurant/${id}`)
+    .get(`/restaurant/${restaurantId}`)
     .then(restaurant => {
-      let { restaurantName, restaurantCuisine, location } = restaurant.data;
+      let { restaurantId, restaurantName, restaurantCuisine, location } = restaurant.data;
       this.setState({ 
+        restaurantId,
         restaurantName,
         restaurantCuisine,
         location
@@ -51,7 +58,26 @@ export default class NavBar extends Component {
         <div className="location-picker">
           <LocationPicker />
         </div>
+        <br /><br />
 
+
+        {this.state.isLoggedIn &&
+          <div className="user-menu">
+            <UserView />
+            <br /><br />
+          </div>
+        }
+
+        {!this.state.isLoggedIn &&
+          <div className="user-menu">
+            <GuestView />
+            <br /><br />
+          </div>
+        }
+
+        <div className="search">
+          <Search fetchRestaurant={this.fetchRestaurant} restaurantId={this.state.restaurantId}/>
+        </div>
         <br /><br />
 
         <div className="resinfo">
