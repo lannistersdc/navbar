@@ -26,6 +26,7 @@ export default class NavBar extends Component {
     this.fetchRestaurant(restaurantId);
     // determine if user is logged in or not
   }
+  
 
   fetchRestaurant(restaurantId) {
     axios

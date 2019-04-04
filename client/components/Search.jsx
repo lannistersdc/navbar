@@ -1,5 +1,36 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import Autosuggest from 'react-autosuggest';
 
+// const languages = [
+//   {
+//     name: 'C',
+//     year: 1972
+//   },
+//   {
+//     name: 'Elm',
+//     year: 2012
+//   }
+// ];
+
+// const getSuggestions = value => {
+//   const inputValue = value.trim().toLowerCase();
+//   const inputLength = inputValue.length;
+
+//   return inputLength === 0 ? []: languages.filter(lang => lang.name.toLowerCase().slice(0, inputLength) === inputValue);
+// }
+
+// const getSuggestionValue = suggestion => suggestion.name;
+
+// const renderSuggestion = suggestion => (
+//   <div>
+//     {suggestion.name}
+//   </div>
+// )
+
+// function shouldRenderSuggestions(value) {
+//   return value.trim().length > 2;
+// }
 export default class Search extends Component {
   constructor(props) {
     super(props);
@@ -8,11 +39,49 @@ export default class Search extends Component {
       date: '',
       time: '',
       partySize: 2,
-      searchInput: ''
+      value: '',
+      suggestions: [],
+      restaurantNames: [],
+      restaurantCuisines: [],
+      metros: [],
+      regions: []
     }
     this.toggleSearch = this.toggleSearch.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.getSuggestions = this.getSuggestions.bind(this);
+    this.getSuggestionValue = this.getSuggestionValue.bind(this);
+    this.renderSuggestion = this.renderSuggestion.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
+    this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
     this.handleFindTableButton = this.handleFindTableButton.bind(this);
+
+  }
+
+  componentDidMount() {
+    this.fetchRestaurantData();
+  }
+  
+  fetchRestaurantData() {
+    axios
+    .get('/restaurant')
+    .then(restaurants => {
+      let restaurantNames = restaurants.data.map(res => res.restaurantName);
+      let restaurantCuisines = restaurants.data.map(res => res.restaurantCuisine);
+      let array = restaurants.data.map(res => res.location.split(', '))
+      let metros = array.map(tuple => tuple[0]);
+      let regions = [];
+      for (let tuple = 0; tuple < array.length; tuple++) {
+        if (array[tuple][1] && !regions.includes(array[tuple][1])) {
+          regions.push(array[tuple][1])
+        }
+      }
+      this.setState({
+      restaurantNames,
+      restaurantCuisines,
+      metros,
+      regions
+      }, () => console.log(this.state))
+    })
   }
 
   toggleSearch(e) {
@@ -23,12 +92,44 @@ export default class Search extends Component {
     }, () => console.log(`Search opened: ${this.state.opened}`))
   }
 
-  handleInputChange(e) {
-    let searchInput = e.target.value;
+  getSuggestions(value) {
+    const inputValue = value.trim().toLowerCase();
+    const inputLength = inputValue.length;
+  
+    return inputLength === 0 ? []: this.state.metros.filter(metro => metro.toLowerCase().slice(0, inputLength) === inputValue);
+  }
+  
+  getSuggestionValue(suggestion) {
+    return suggestion.name
+  }
+  
+  renderSuggestion(suggestion) {
+    return (
+    <div>
+      {suggestion}
+    </div>
+    ) 
+  }
+  
+
+  onChange(e, { newValue }) {
+    // let value = e.target.value;
     // predictive search function goes here
     this.setState({ 
-      searchInput 
-    }, () => console.log(this.state.searchInput))
+      value: newValue 
+    }, () => console.log(this.state.value))
+  }
+
+  onSuggestionsFetchRequested({ value }) {
+    this.setState({
+      suggestions: this.getSuggestions(value)
+    })
+  }
+
+  onSuggestionsClearRequested() {
+    this.setState({
+      suggestions: []
+    })
   }
 
   handleFindTableButton(e) {
@@ -42,6 +143,14 @@ export default class Search extends Component {
   }
 
   render() {
+    const { value, suggestions } = this.state;
+
+    const inputProps = {
+      placeholder: 'Location, Restaurant, or Cuisine',
+      value,
+      onChange: this.onChange
+    }
+
     return (
       <div>
         <button name="search" onClick={this.toggleSearch}>Search</button>
@@ -63,10 +172,18 @@ export default class Search extends Component {
             </div>
 
             <div id="search-input">
-              <form>
-                <input onChange={this.handleInputChange} value={this.state.searchInput} placeholder="Location, Restaurant, or Cuisine"></input><br />
-                <button name="find-table-btn" onClick={this.handleFindTableButton}>Find a Table</button>
-              </form>
+              {/* <form> */}
+                {/* <input onChange={this.onChange} value={this.state.value} placeholder="Location, Restaurant, or Cuisine"></input><br /> */}
+                <Autosuggest
+                suggestions={suggestions}
+                onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                getSuggestionValue={this.getSuggestionValue}
+                renderSuggestion={this.renderSuggestion}
+                inputProps={inputProps}
+                />
+                {/* <button name="find-table-btn" onClick={this.handleFindTableButton}>Find a Table</button> */}
+              {/* </form> */}
             </div>
 
           </div>

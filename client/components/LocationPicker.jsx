@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
-export class LocationPicker extends Component {
+export default class LocationPicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,9 +9,15 @@ export class LocationPicker extends Component {
       metros: [],
       regions: []
     }
+    this.fetchLocations = this.fetchLocations.bind(this);
+    this.toggleLocationPicker = this.toggleLocationPicker.bind(this);
   }
 
   componentDidMount() {
+    this.fetchLocations();
+  }
+  
+  fetchLocations() {
     axios
     .get('/restaurant')
     .then(restaurants => {
@@ -27,41 +33,46 @@ export class LocationPicker extends Component {
         metros,
         regions
       }, () => console.log(this.state))
-    }
-  )
-    
+    })
   }
-  
-  // handleClick
+
+  toggleLocationPicker(e) {
+    e.preventDefault();
+    let opened = !this.state.opened
+    this.setState({ opened }, () => console.log(`LocationPicker opened: ${this.state.opened}`))
+  }
 
   render() {
     
     return (
       <div>
+        <button name="location-picker" onClick={this.toggleLocationPicker}>Locations</button>
 
-        <div id="metros">
-        Metros:
-          <select>
-            {this.state.metros.map(metro => (
-              <option>{metro}</option>
-            ))}
-          </select>
-        </div>
+        {this.state.opened && 
+          <div>
+            <div id="metros">
+            Metros:
+              <select>
+                {this.state.metros.map(metro => (
+                  <option>{metro}</option>
+                ))}
+              </select>
+            </div>
 
-        <br />
+            <br />
 
-        <div id="regions">
-        Regions:
-          <select>
-            {this.state.regions.map(region => (
-              <option>{region}</option>
-            ))}
-          </select>
-        </div>
+            <div id="regions">
+            Regions:
+              <select>
+                {this.state.regions.map(region => (
+                  <option>{region}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        }
 
       </div>
     )
   }
 }
-
-export default LocationPicker
