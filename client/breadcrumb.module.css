@@ -1,5 +1,6 @@
 /* Style the list */
 .breadcrumb {
+  /* display: flex; */
   background-color: #fff!important;
   height: 2rem;
   line-height: 1.9rem;

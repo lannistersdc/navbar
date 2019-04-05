@@ -1,3 +1,5 @@
+public/bundle.js
+
 ## MAC files ##
 .DS_Store
 
@@ -24,5 +26,4 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
-public/bundle.js
 public/0c768d55814c915b5335a078526e6afc.png

@@ -2,35 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Autosuggest from 'react-autosuggest';
 
-// const languages = [
-//   {
-//     name: 'C',
-//     year: 1972
-//   },
-//   {
-//     name: 'Elm',
-//     year: 2012
-//   }
-// ];
-
-// const getSuggestions = value => {
-//   const inputValue = value.trim().toLowerCase();
-//   const inputLength = inputValue.length;
-
-//   return inputLength === 0 ? []: languages.filter(lang => lang.name.toLowerCase().slice(0, inputLength) === inputValue);
-// }
-
-// const getSuggestionValue = suggestion => suggestion.name;
-
-// const renderSuggestion = suggestion => (
-//   <div>
-//     {suggestion.name}
-//   </div>
-// )
-
-// function shouldRenderSuggestions(value) {
-//   return value.trim().length > 2;
-// }
 export default class Search extends Component {
   constructor(props) {
     super(props);
