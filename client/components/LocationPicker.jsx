@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
-export class LocationPicker extends Component {
+export default class LocationPicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -76,5 +76,3 @@ export class LocationPicker extends Component {
     )
   }
 }
-
-export default LocationPicker

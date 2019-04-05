@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import styles from '../flexbox.module.css';
 
 export default class UserView extends Component {
   constructor(props) {
@@ -55,9 +56,9 @@ export default class UserView extends Component {
     return (
       <div>
       
-        <div name="isLoggedIn">
-          <div id="upcoming-btn">
-            <button onClick={this.toggleReservationView}>Upcoming</button><br /><br />
+        <div className={styles.userview}>
+          <div className="upcoming">
+            <button onClick={this.toggleReservationView}>Upcoming</button>
             
             {this.state.reservationViewOpened && 
               <div id="reservation-info">
@@ -79,14 +80,13 @@ export default class UserView extends Component {
                 <div>
                   <h5>View All</h5>
                 </div>
-                <br /><br />
 
               </div>
             }
 
           </div>
 
-          <div id="usermenu-btn">
+          <div className="helloUser">
           <button onClick={this.toggleUserMenuOpened}>Hi, Liezel</button>
             {this.state.userMenuOpened && 
               <div id="user-options">
