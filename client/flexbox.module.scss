@@ -1,0 +1,74 @@
+// body
+body {
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  background-color: #FFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// flex positions
+.container {
+  border: 5px solid #181112;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.locations {
+  border: 5px solid #d11f8d;
+  margin-right: auto;
+}
+
+.userview {
+  display: flex;
+  align-content: flex-end;
+}
+
+/* .upcoming {
+  border: 5px solid #3a37da;
+  margin-left: auto;
+} */
+
+/* .helloUser {
+  border: 5px solid #45da37;
+  /* align-self: flex-end; 
+} */
+
+.search {
+  border: 5px solid #afda37;
+  /* margin-left: auto; */
+}
+
+// location picker overflow
+.locationtable {
+  display: flex;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+  margin: 2px;
+  border-radius: 3px;
+}
+
+.overflowMetro {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0px;
+  width: 316px;
+  height: 400px;
+  .selector {
+    color: #999!important;
+    border-left: 3px solid transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .selected {
+    color: #237b98!important;
+    background: #eef4fb;
+    border-color: #237b98;
+  }
+}
+
+.overflowRegion {
+  @extend .overflowMetro;
+  // position: relative;
+}

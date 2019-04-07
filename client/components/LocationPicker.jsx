@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import OverflowScrolling from 'react-overflow-scrolling';
+import styles from '../flexbox.module.scss';
 
 export default class LocationPicker extends Component {
   constructor(props) {
@@ -11,6 +13,7 @@ export default class LocationPicker extends Component {
     }
     this.fetchLocations = this.fetchLocations.bind(this);
     this.toggleLocationPicker = this.toggleLocationPicker.bind(this);
+    this.closeLocationPicker = this.closeLocationPicker.bind(this);
   }
 
   componentDidMount() {
@@ -38,36 +41,56 @@ export default class LocationPicker extends Component {
 
   toggleLocationPicker(e) {
     e.preventDefault();
-    let opened = !this.state.opened
-    this.setState({ opened }, () => console.log(`LocationPicker opened: ${this.state.opened}`))
+    // let opened = !this.state.opened
+    this.setState({ opened: true }, () => {
+      document.addEventListener('click', this.closeLocationPicker);
+    })
+  }
+
+  closeLocationPicker() {
+    if (!this.dropdownMenu.contains(event.target)) {
+      this.setState({ opened: false }, () => {
+        document.removeEventListener('click', this.closeLocationPicker);
+      })
+    }
   }
 
   render() {
-    
+    let { region, city } = this.props;
     return (
       <div>
         <button name="location-picker" onClick={this.toggleLocationPicker}>Locations</button>
 
         {this.state.opened && 
-          <div>
+          <div className={styles.locationtable}>
+
             <div id="metros">
-            Metros:
-              <select>
-                {this.state.metros.map(metro => (
-                  <option>{metro}</option>
-                ))}
-              </select>
+              <h4>
+              Metro
+              </h4>
+              <OverflowScrolling className={styles.overflowMetro}>
+                <div className="menu" ref={(element) => { this.dropdownMenu = element }}>
+                  <ul><a href="#" className={styles.selected}>Los Angeles</a></ul>
+                  {this.state.metros.map(metro => (
+                    <ul><a href="#" className={styles.selector}>{metro}</a></ul>
+                  ))}
+                </div>
+              </OverflowScrolling>
+
             </div>
 
-            <br />
-
             <div id="regions">
-            Regions:
-              <select>
-                {this.state.regions.map(region => (
-                  <option>{region}</option>
-                ))}
-              </select>
+              <h4>
+                Region
+              </h4>
+              <OverflowScrolling className={styles.overflowRegion}>
+                <div className="menu" >
+                  {this.state.regions.map(regionName => (
+                    <ul><a href="#" className={ regionName !== region ? styles.selector : styles.selected}>{regionName}</a></ul>
+                  ))}
+                </div>
+              </OverflowScrolling>
+
             </div>
           </div>
         }
