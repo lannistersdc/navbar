@@ -28,7 +28,24 @@
 //   box-shadow: 0 2px 8px rgba(153,153,153,.4)
 // }
 
-.main {
+.title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 24px;
+}
+
+.selections {
+  display: flex;
+  justify-content: center;
+  min-width: 480px;
+
+}
+
+.searchInput {
   display: flex;
   justify-content: center;
 }
+
+@import "../node_modules/react-day-picker/lib/style"

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DayPicker from './DayPicker.jsx';
 import axios from 'axios';
 import Autosuggest from 'react-autosuggest';
 import styles from '../search.module.scss';
@@ -134,24 +135,34 @@ export default class Search extends Component {
             <button onClick={this.toggleSearch}><h6>X</h6></button>
             </div>
 
-            <div className={styles.main}>
-
-            Find your table for any occasion:
-
-            <div>
-              date
+            <div className={styles.title}>
+              <h3>
+                <span>Find your table for any occasion:</span>
+              </h3>
             </div>
 
-            <div>
-              time
+            <div className={styles.selections}>
+
+              <div>
+                <DayPicker />
+              </div>
+
+              <div className={styles.time}>
+                <select>
+                  <option value="13:00">1:00 PM</option>
+                </select>
+              </div>
+
+              <div className={styles.partySize}>
+              <select>
+                  <option value="2">2 people</option>
+                </select>
+              </div>
+
             </div>
 
-            <div>
-              partySize
-            </div>
-
-            <div id="search-input">
-              {/* <form> */}
+            <div className={styles.searchInput}>
+              <form>
                 {/* <input onChange={this.onChange} value={this.state.value} placeholder="Location, Restaurant, or Cuisine"></input><br /> */}
                 <Autosuggest
                 suggestions={suggestions}
@@ -161,11 +172,10 @@ export default class Search extends Component {
                 renderSuggestion={this.renderSuggestion}
                 inputProps={inputProps}
                 />
-                {/* <button name="find-table-btn" onClick={this.handleFindTableButton}>Find a Table</button> */}
-              {/* </form> */}
+                <button name="find-table-btn" onClick={this.handleFindTableButton}>Find a Table</button>
+              </form>
             </div>
             
-            </div>
 
           </div>
         }
