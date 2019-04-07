@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Autosuggest from 'react-autosuggest';
+import styles from '../search.module.scss';
 
 export default class Search extends Component {
   constructor(props) {
@@ -127,7 +128,14 @@ export default class Search extends Component {
         <button name="search" onClick={this.toggleSearch}>Search</button>
 
         {this.state.opened && 
-          <div>
+          <div className={styles.header}>
+
+            <div className={styles.close}>
+            <button onClick={this.toggleSearch}><h6>X</h6></button>
+            </div>
+
+            <div className={styles.main}>
+
             Find your table for any occasion:
 
             <div>
@@ -155,6 +163,8 @@ export default class Search extends Component {
                 />
                 {/* <button name="find-table-btn" onClick={this.handleFindTableButton}>Find a Table</button> */}
               {/* </form> */}
+            </div>
+            
             </div>
 
           </div>

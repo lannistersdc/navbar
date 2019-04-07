@@ -12,7 +12,7 @@ export default class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false,
+      isLoggedIn: true,
       restaurantId: null,
       restaurantName: '',
       restaurantCuisine: '',
@@ -76,7 +76,7 @@ export default class NavBar extends Component {
           </div>
         }
 
-          <div className={styles.search}>
+          <div className={styles.searchbtn}>
             <Search fetchRestaurant={this.fetchRestaurant} restaurantId={this.state.restaurantId}/>
           </div>
 
@@ -84,12 +84,16 @@ export default class NavBar extends Component {
         
         {/* END OF CONTAINER */}
 
-        <div id="breadcrumb" className="breadcrumb">
+        <div id="breadcrumb" className={styles.breadcrumb}>
           <Breadcrumb region={location[1]} city={location[0]}/>
         </div>
 
-
-        <div className="resinfo">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div className={styles.resData}>
           Name: {restaurantName}
           <br />
           Cuisine: {restaurantCuisine}
