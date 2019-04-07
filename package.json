@@ -21,6 +21,9 @@
     "babel-loader": "^8.0.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "file-loader": "^3.0.1",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   },
@@ -34,6 +37,7 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
     "react": "^16.8.4",
+    "react-autosuggest": "^9.4.3",
     "react-calendar": "^2.18.1",
     "react-dom": "^16.8.4",
     "style-loader": "^0.23.1",
