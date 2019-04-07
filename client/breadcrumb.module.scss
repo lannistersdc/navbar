@@ -1,6 +1,5 @@
 /* Style the list */
 .breadcrumb {
-  /* display: flex; */
   background-color: #fff!important;
   height: 2rem;
   line-height: 1.9rem;
@@ -12,8 +11,10 @@
 
 /* Display list items side by side */
 .breadcrumb li {
-  display: inline;
-  font-size: 15px;
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0 1rem 0 .35rem;
 }
 
 /* Add a color to all links inside the list */

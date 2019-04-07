@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../breadcrumb.module.css';
+import styles from '../breadcrumb.module.scss';
 
 const Breadcrumb = ({ region, city }) => {
   return (
