@@ -58,7 +58,7 @@ export default class NavBar extends Component {
           </div>
           
           <div className={styles.locations}>
-            <LocationPicker />
+            <LocationPicker region={location[1]} city={location[0]}/>
           </div>
 
         

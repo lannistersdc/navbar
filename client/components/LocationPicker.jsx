@@ -56,7 +56,7 @@ export default class LocationPicker extends Component {
   }
 
   render() {
-    
+    let { region, city } = this.props;
     return (
       <div>
         <button name="location-picker" onClick={this.toggleLocationPicker}>Locations</button>
@@ -70,6 +70,7 @@ export default class LocationPicker extends Component {
               </h4>
               <OverflowScrolling className={styles.overflowMetro}>
                 <div className="menu" ref={(element) => { this.dropdownMenu = element }}>
+                  <ul><a href="#" className={styles.selected}>Los Angeles</a></ul>
                   {this.state.metros.map(metro => (
                     <ul><a href="#" className={styles.selector}>{metro}</a></ul>
                   ))}
@@ -84,8 +85,8 @@ export default class LocationPicker extends Component {
               </h4>
               <OverflowScrolling className={styles.overflowRegion}>
                 <div className="menu" >
-                  {this.state.regions.map(region => (
-                    <ul><a href="#" className={styles.selector}>{region}</a></ul>
+                  {this.state.regions.map(regionName => (
+                    <ul><a href="#" className={ regionName !== region ? styles.selector : styles.selected}>{regionName}</a></ul>
                   ))}
                 </div>
               </OverflowScrolling>

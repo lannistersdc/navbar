@@ -61,6 +61,11 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+  .selected {
+    color: #237b98!important;
+    background: #eef4fb;
+    border-color: #237b98;
+  }
 }
 
 .overflowRegion {
