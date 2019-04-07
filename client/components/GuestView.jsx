@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import styles from '../flexbox.module.scss';
 
 export default class GuestView extends Component {
   constructor(props) {
@@ -28,16 +29,16 @@ export default class GuestView extends Component {
   render() {
     return (
       <div>
-        <div name="isNotLoggedIn">
+        <div name="isNotLoggedIn" className={styles.userview}>
             <div id="Signup">
-              <button onClick={this.toggleSignUp}>Sign up</button><br />
-              <a href="https://sabe.io/tutorials/how-to-create-modal-popup-box">Modal popup box here</a>
+              <button onClick={this.toggleSignUp}>Sign up</button>
+              {/* <a href="https://sabe.io/tutorials/how-to-create-modal-popup-box">Modal popup box here</a> */}
 
             </div>
 
             <div id="Login">
-            <button onClick={this.toggleLogin}>Log in</button><br />
-            <a href="https://sabe.io/tutorials/how-to-create-modal-popup-box">Modal popup box here</a>
+            <button onClick={this.toggleLogin}>Log in</button>
+            {/* <a href="https://sabe.io/tutorials/how-to-create-modal-popup-box">Modal popup box here</a> */}
 
             </div>
           </div>

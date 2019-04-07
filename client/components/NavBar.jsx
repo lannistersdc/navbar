@@ -6,12 +6,13 @@ import Search from './Search.jsx';
 import GuestView from './GuestView.jsx';
 import UserView from './UserView.jsx';
 import axios from 'axios';
+import styles from '../flexbox.module.scss';
 
 export default class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: true,
+      isLoggedIn: false,
       restaurantId: null,
       restaurantName: '',
       restaurantCuisine: '',
@@ -26,6 +27,7 @@ export default class NavBar extends Component {
     this.fetchRestaurant(restaurantId);
     // determine if user is logged in or not
   }
+  
 
   fetchRestaurant(restaurantId) {
     axios
@@ -46,21 +48,20 @@ export default class NavBar extends Component {
     location = location.split(', ');
     return (
       <div>
+        {/* START OF PARENT DIV */}
 
-        <div>
-          <Logo />
-        </div>
+        <div className={styles.container}>
+        {/* START OF CONTAINER */}
 
-        <div className="breadcrumb">
-          <Breadcrumb region={location[1]} city={location[0]}/>
-        </div>
+          <div id="logo">
+            <Logo />
+          </div>
+          
+          <div className={styles.locations}>
+            <LocationPicker />
+          </div>
+
         
-        <div className="location-picker">
-          <LocationPicker />
-        </div>
-        <br /><br />
-
-
         {this.state.isLoggedIn &&
           <div className="user-menu">
             <UserView />
@@ -75,10 +76,18 @@ export default class NavBar extends Component {
           </div>
         }
 
-        <div className="search">
-          <Search fetchRestaurant={this.fetchRestaurant} restaurantId={this.state.restaurantId}/>
+          <div className={styles.search}>
+            <Search fetchRestaurant={this.fetchRestaurant} restaurantId={this.state.restaurantId}/>
+          </div>
+
         </div>
-        <br /><br />
+        
+        {/* END OF CONTAINER */}
+
+        <div id="breadcrumb" className="breadcrumb">
+          <Breadcrumb region={location[1]} city={location[0]}/>
+        </div>
+
 
         <div className="resinfo">
           Name: {restaurantName}
@@ -88,6 +97,7 @@ export default class NavBar extends Component {
           Location: {location}
         </div>
         
+        {/* END OF PARENT DIV */}
       </div>
     )
   }
