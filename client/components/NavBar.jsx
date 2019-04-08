@@ -6,7 +6,7 @@ import Search from './Search.jsx';
 import GuestView from './GuestView.jsx';
 import UserView from './UserView.jsx';
 import axios from 'axios';
-import styles from '../flexbox.module.scss';
+import styles from '../container.module.scss';
 
 export default class NavBar extends Component {
   constructor(props) {

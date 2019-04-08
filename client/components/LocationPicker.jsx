@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import OverflowScrolling from 'react-overflow-scrolling';
-import styles from '../flexbox.module.scss';
+import styles from '../container.module.scss';
 
 export default class LocationPicker extends Component {
   constructor(props) {

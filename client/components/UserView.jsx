@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../flexbox.module.scss';
+import styles from '../container.module.scss';
 
 export default class UserView extends Component {
   constructor(props) {
