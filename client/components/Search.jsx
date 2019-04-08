@@ -17,12 +17,16 @@ export default class Search extends Component {
       restaurantNames: [],
       restaurantCuisines: [],
       metros: [],
-      regions: []
+      regions: [],
+      results: []
     }
     this.toggleSearch = this.toggleSearch.bind(this);
     this.getSuggestions = this.getSuggestions.bind(this);
     this.getSuggestionValue = this.getSuggestionValue.bind(this);
     this.renderSuggestion = this.renderSuggestion.bind(this);
+    this.shouldRenderSuggestions = this.shouldRenderSuggestions.bind(this);
+    // this.getSectionSuggestions = this.getSectionSuggestions.bind(this);
+    // this.renderSectionTitle = this.renderSectionTitle.bind(this);
     this.onChange = this.onChange.bind(this);
     this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
@@ -38,14 +42,41 @@ export default class Search extends Component {
     axios
     .get('/restaurant')
     .then(restaurants => {
-      let restaurantNames = restaurants.data.map(res => res.restaurantName);
-      let restaurantCuisines = restaurants.data.map(res => res.restaurantCuisine);
+
+      let restaurantNames = restaurants.data.map(res => {
+        let obj = {
+          section: "Restaurants",
+          name: res.restaurantName
+        }
+        return obj;
+      });
+      
+      let restaurantCuisines = restaurants.data.map(res => {
+        let obj = {
+          section: "Cuisines",
+          name: res.restaurantCuisine
+        }
+        return obj;
+      });
+
       let array = restaurants.data.map(res => res.location.split(', '))
-      let metros = array.map(tuple => tuple[0]);
+
+      let metros = array.map(tuple => {
+        let obj = {
+          section: "Locations",
+          name: tuple[0]
+        }
+        return obj;
+      });
+
       let regions = [];
       for (let tuple = 0; tuple < array.length; tuple++) {
         if (array[tuple][1] && !regions.includes(array[tuple][1])) {
-          regions.push(array[tuple][1])
+          let obj = {
+            section: "Locations",
+            name: array[tuple][1]
+          }
+          regions.push(obj)
         }
       }
       this.setState({
@@ -69,21 +100,42 @@ export default class Search extends Component {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
   
-    return inputLength === 0 ? []: this.state.metros.filter(metro => metro.toLowerCase().slice(0, inputLength) === inputValue);
+    // return inputLength === 0 ? []: this.state.metros.filter(metro => metro.toLowerCase().slice(0, inputLength) === inputValue);
+
+    if (inputLength > 0) {
+      return this.state.metros.filter(metro => metro.name.toLowerCase().slice(0, inputLength) === inputValue)
+    }
   }
   
   getSuggestionValue(suggestion) {
-    return suggestion.name
+    return suggestion.name;
   }
+
+  // render suggestions
   
   renderSuggestion(suggestion) {
     return (
     <div>
-      {suggestion}
+      {suggestion.name}
     </div>
     ) 
   }
   
+  shouldRenderSuggestions(value) {
+    return value.trim().length > 1;
+  }
+
+  // Render Sections
+  
+  // renderSectionTitle(suggestion) {
+  //   return (
+  //     <strong>{suggestion.section}</strong>
+  //     );
+  //   }
+    
+  // getSectionSuggestions(section) {
+  //   return section.suggestions;
+  // }
 
   onChange(e, { newValue }) {
     // let value = e.target.value;
@@ -170,7 +222,11 @@ export default class Search extends Component {
                 onSuggestionsClearRequested={this.onSuggestionsClearRequested}
                 getSuggestionValue={this.getSuggestionValue}
                 renderSuggestion={this.renderSuggestion}
+                shouldRenderSuggestions={this.shouldRenderSuggestions}
                 inputProps={inputProps}
+                getSectionSuggestions={this.getSectionSuggestions}
+                // renderSectionTitle={this.renderSectionTitle}
+                // multiSection={true}
                 />
                 <button name="find-table-btn" onClick={this.handleFindTableButton}>Find a Table</button>
               </form>

@@ -41,6 +41,7 @@
     "react-calendar": "^2.18.1",
     "react-day-picker": "^7.3.0",
     "react-dom": "^16.8.4",
+    "react-dropdown-aria": "^1.2.1",
     "react-inlinesvg": "^0.8.4",
     "react-overflow-scrolling": "^1.0.0",
     "style-loader": "^0.23.1",

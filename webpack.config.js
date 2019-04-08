@@ -39,6 +39,20 @@ module.exports = {
         ])
       },
       {
+        test: /node_modules\/.*\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
         test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg|otf)(\?[a-z0-9=.]+)?$/,
         loader: 'url-loader?limit=100000'
       },
