@@ -14,28 +14,35 @@ body {
   justify-content: flex-end;
 }
 
-.breadcrumb {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.resData {
-  display: flex;
-  align-items: flex-end;
+.logo {
+  border: 1px solid #982323
 }
 
 .locations {
-  border: 3px solid #d11f8d;
+  border: 1px solid #d11f8d;
   margin-right: auto;
 }
 
-.userview {
+
+.userView {
   display: flex;
-  align-content: flex-end;
-  background: #fff;
-  box-shadow: 0 0 0 1px rgba(0,0,0,.1);
-  margin: 2px;
-  border-radius: 3px;
+  flex-direction: row;
+  justify-content: flex-end;
+  .userMenu {
+    // display: inline-block;
+    // position: absolute;
+    top: 0; 
+    .dropdown {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background: #fff;
+      box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+      margin: 2px;
+      border-radius: 3px;
+      z-index: 1;
+    }
+  }
 }
 
 /* .upcoming {
@@ -49,7 +56,7 @@ body {
 } */
 
 .searchbtn {
-  border: 3px solid #afda37;
+  // border: 3px solid #afda37;
   /* margin-left: auto; */
 }
 
@@ -85,4 +92,14 @@ body {
 .overflowRegion {
   @extend .overflowMetro;
   // position: relative;
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.resData {
+  display: flex;
+  align-items: flex-end;
 }

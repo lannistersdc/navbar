@@ -59,7 +59,9 @@ export default class LocationPicker extends Component {
     let { region, city } = this.props;
     return (
       <div>
-        <button name="location-picker" onClick={this.toggleLocationPicker}>Locations</button>
+        <div name="location-picker" onClick={this.toggleLocationPicker}>
+          <h4>{region}</h4>
+        </div>
 
         {this.state.opened && 
           <div className={styles.locationtable}>
