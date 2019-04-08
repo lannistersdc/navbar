@@ -56,7 +56,8 @@ export default class UserView extends Component {
     return (
       <div>
       
-        <div className={styles.userview}>
+        <div className={styles.userView}>
+
           <div className="upcoming">
             <button onClick={this.toggleReservationView}>Upcoming</button>
             

@@ -36,7 +36,6 @@
     "mongoose": "^5.4.19",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
-    "rc-dropdown": "^2.4.1",
     "react": "^16.8.4",
     "react-autosuggest": "^9.4.3",
     "react-calendar": "^2.18.1",
