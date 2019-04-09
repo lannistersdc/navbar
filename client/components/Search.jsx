@@ -149,7 +149,7 @@ export default class Search extends Component {
 
     return (
       <div>
-        <button name="search" onClick={this.toggleSearch}>Search</button>
+        <div className={styles.searchButton} onClick={this.toggleSearch}>Search</div>
 
         {this.state.opened && 
           <div className={styles.header}>

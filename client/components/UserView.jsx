@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../container.module.scss';
+import styles from '../user.module.scss';
 
 export default class UserView extends Component {
   constructor(props) {
@@ -79,10 +79,10 @@ export default class UserView extends Component {
     return (
       <div>
       
-        <ul className={styles.userView}>
+        <ul>
         
           {/* <div className="upcoming"> */}
-            <li onClick={this.toggleReservationView}>Upcoming</li>
+            <li className={styles.dropdown} onClick={this.toggleReservationView}>Upcoming</li>
             
             {/* {this.state.reservationViewOpened &&  */}
               <div id="reservation-info" className={styles.showReservations}>
@@ -111,7 +111,7 @@ export default class UserView extends Component {
           {/* </div> */}
 
           {/* <div className="helloUser"> */}
-          <li onClick={this.toggleUserMenuOpened}>Hi, Liezel</li>
+          <li className={styles.dropdown} onClick={this.toggleUserMenuOpened}>Hi, Liezel</li>
             {/* {this.state.userMenuOpened &&  */}
               <div id="user-options" className={styles.showUserMenu}>
 

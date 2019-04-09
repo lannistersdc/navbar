@@ -53,30 +53,28 @@ export default class NavBar extends Component {
         <div className={styles.container}>
         {/* START OF CONTAINER */}
 
-          <div className={styles.component+ ' ' + styles.logo}>
+          <div className={styles.Logo}>
             <Logo />
           </div>
           
-          <div className={styles.component+ ' ' + styles.locations}>
+          <div className={styles.component+ ' ' + styles.LocationPicker}>
             <LocationPicker region={location[1]} city={location[0]}/>
           </div>
 
         
         {this.state.isLoggedIn &&
-          <div className="user-menu">
+          <div className={styles.UserView}>
             <UserView />
-            <br /><br />
           </div>
         }
 
         {!this.state.isLoggedIn &&
-          <div className="user-menu">
+          <div className={styles.GuestView}>
             <GuestView />
-            <br /><br />
           </div>
         }
 
-          <div className={styles.component+ ' ' + styles.searchbtn}>
+          <div className={styles.component+ ' ' + styles.Search}>
             <Search fetchRestaurant={this.fetchRestaurant} restaurantId={this.state.restaurantId}/>
           </div>
 

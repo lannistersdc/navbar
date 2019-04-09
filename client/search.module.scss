@@ -1,3 +1,8 @@
+.searchButton {
+  display: flex;
+  
+}
+
 .header {
   // visibility: hidden;
   // opacity: 0;
@@ -12,7 +17,7 @@
   z-index: 1;
   visibility: visible;
   opacity: 1;
-  padding-bottom: 64px;
+  // padding-bottom: 64px;
   box-shadow: 0 2px 8px rgba(153,153,153,.4);
   .close {
     // border: 3px solid #afda37;
@@ -21,12 +26,6 @@
   }
 }
 
-// .header {
-//   visibility: visible;
-//   opacity: 1;
-//   padding-bottom: 64px;
-//   box-shadow: 0 2px 8px rgba(153,153,153,.4)
-// }
 
 .title {
   text-align: center;
