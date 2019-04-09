@@ -16,7 +16,7 @@ export default class UserView extends Component {
 
     this.toggleReservationView = this.toggleReservationView.bind(this);
     this.closeReservationView = this.closeReservationView.bind(this);
-    
+
     this.toggleUserMenuOpened = this.toggleUserMenuOpened.bind(this);
     this.closeUserMenu = this.closeUserMenu.bind(this);
   }
@@ -36,7 +36,7 @@ export default class UserView extends Component {
     })
   }
 
-  toggleReservationView(e) {
+  toggleReservationView() {
     // e.preventDefault();
     // let reservationViewOpened = !this.state.reservationViewOpened;
     // this.setState({ 
@@ -55,7 +55,7 @@ export default class UserView extends Component {
     }
   }
 
-  toggleUserMenuOpened(e) {
+  toggleUserMenuOpened() {
     // e.preventDefault();
     // let userMenuOpened = !this.state.userMenuOpened;
     // this.setState({ 
@@ -64,7 +64,7 @@ export default class UserView extends Component {
     // also if user clicks outside of usermenu, close menu
 
     document.getElementById("user-options").style.display = "block";
-    document.addEventListener('click', this.closeReservationView);
+    document.addEventListener('click', this.closeUserMenu);
   }
 
   closeUserMenu() {
