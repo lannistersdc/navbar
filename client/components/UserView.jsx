@@ -13,8 +13,12 @@ export default class UserView extends Component {
       partySize: 2,
     }
     this.fetchReservation = this.fetchReservation.bind(this);
+
     this.toggleReservationView = this.toggleReservationView.bind(this);
+    this.closeReservationView = this.closeReservationView.bind(this);
+    
     this.toggleUserMenuOpened = this.toggleUserMenuOpened.bind(this);
+    this.closeUserMenu = this.closeUserMenu.bind(this);
   }
 
   componentDidMount() {
@@ -33,22 +37,41 @@ export default class UserView extends Component {
   }
 
   toggleReservationView(e) {
-    e.preventDefault();
-    let reservationViewOpened = !this.state.reservationViewOpened;
-    this.setState({ 
-      reservationViewOpened 
-    }, () => console.log(`Reservation View opened: ${this.state.reservationViewOpened}`))
+    // e.preventDefault();
+    // let reservationViewOpened = !this.state.reservationViewOpened;
+    // this.setState({ 
+    //   reservationViewOpened 
+    // }, () => console.log(`Reservation View opened: ${this.state.reservationViewOpened}`))
     // also if user clicks outside of usermenu, close view
+
+    document.getElementById("reservation-info").style.display = "block";
+    document.addEventListener('click', this.closeReservationView);
+  }
+
+  closeReservationView() {
+    if (document.getElementById("reservation-info").style.display === "block") {
+      document.getElementById("reservation-info").style.display = "none";
+      document.removeEventListener('click', this.closeReservationView);
+    }
   }
 
   toggleUserMenuOpened(e) {
-    e.preventDefault();
-    let userMenuOpened = !this.state.userMenuOpened;
-    this.setState({ 
-      userMenuOpened 
-    }, () => console.log(`UserMenu View opened: ${this.state.userMenuOpened}`))
-
+    // e.preventDefault();
+    // let userMenuOpened = !this.state.userMenuOpened;
+    // this.setState({ 
+    //   userMenuOpened 
+    // }, () => console.log(`UserMenu View opened: ${this.state.userMenuOpened}`))
     // also if user clicks outside of usermenu, close menu
+
+    document.getElementById("user-options").style.display = "block";
+    document.addEventListener('click', this.closeReservationView);
+  }
+
+  closeUserMenu() {
+    if (document.getElementById("user-options").style.display === "block") {
+      document.getElementById("user-options").style.display = "none";
+      document.removeEventListener('click', this.closeUserMenu);
+    }
   }
 
   render() {
@@ -56,12 +79,13 @@ export default class UserView extends Component {
     return (
       <div>
       
-        <div className={styles.userview}>
-          <div className="upcoming">
-            <button onClick={this.toggleReservationView}>Upcoming</button>
+        <ul className={styles.userView}>
+        
+          {/* <div className="upcoming"> */}
+            <li onClick={this.toggleReservationView}>Upcoming</li>
             
-            {this.state.reservationViewOpened && 
-              <div id="reservation-info">
+            {/* {this.state.reservationViewOpened &&  */}
+              <div id="reservation-info" className={styles.showReservations}>
                 <div>
                   <h5>UPCOMING</h5>
                 </div>
@@ -82,14 +106,14 @@ export default class UserView extends Component {
                 </div>
 
               </div>
-            }
+            {/* } */}
 
-          </div>
+          {/* </div> */}
 
-          <div className="helloUser">
-          <button onClick={this.toggleUserMenuOpened}>Hi, Liezel</button>
-            {this.state.userMenuOpened && 
-              <div id="user-options">
+          {/* <div className="helloUser"> */}
+          <li onClick={this.toggleUserMenuOpened}>Hi, Liezel</li>
+            {/* {this.state.userMenuOpened &&  */}
+              <div id="user-options" className={styles.showUserMenu}>
 
                 <div>
                   <p>point information</p>
@@ -106,11 +130,11 @@ export default class UserView extends Component {
                 </div>
 
               </div>
-            }
+            {/* } */}
 
-          </div>
+          {/* </div> */}
 
-        </div>
+        </ul>
 
       </div>
     )

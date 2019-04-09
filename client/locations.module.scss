@@ -1,0 +1,39 @@
+.currentRegion {
+  font-family: Helvetica;
+}
+
+.locationtable {
+  display: flex;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+  margin: 2px;
+  border-radius: 3px;
+}
+
+.overflowMetro {
+  background: #fff!important;
+  // display: inline-block;
+  overflow: auto;
+  // position: relative;
+  -webkit-overflow-scrolling: touch;
+  padding: 0px;
+  width: 316px;
+  height: 400px;
+  .selector {
+    color: #999!important;
+    border-left: 3px solid transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .selected {
+    color: #237b98!important;
+    background: #eef4fb;
+    border-color: #237b98;
+  }
+}
+
+.overflowRegion {
+  @extend .overflowMetro;
+  // position: relative;
+}

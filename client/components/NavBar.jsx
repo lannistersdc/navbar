@@ -53,11 +53,11 @@ export default class NavBar extends Component {
         <div className={styles.container}>
         {/* START OF CONTAINER */}
 
-          <div id="logo">
+          <div className={styles.component+ ' ' + styles.logo}>
             <Logo />
           </div>
           
-          <div className={styles.locations}>
+          <div className={styles.component+ ' ' + styles.locations}>
             <LocationPicker region={location[1]} city={location[0]}/>
           </div>
 
@@ -76,7 +76,7 @@ export default class NavBar extends Component {
           </div>
         }
 
-          <div className={styles.searchbtn}>
+          <div className={styles.component+ ' ' + styles.searchbtn}>
             <Search fetchRestaurant={this.fetchRestaurant} restaurantId={this.state.restaurantId}/>
           </div>
 

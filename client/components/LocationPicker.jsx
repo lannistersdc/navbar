@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import OverflowScrolling from 'react-overflow-scrolling';
-import styles from '../container.module.scss';
+import styles from '../locations.module.scss';
 
 export default class LocationPicker extends Component {
   constructor(props) {
@@ -59,7 +59,7 @@ export default class LocationPicker extends Component {
     let { region, city } = this.props;
     return (
       <div>
-        <div name="location-picker" onClick={this.toggleLocationPicker}>
+        <div className={styles.currentRegion} onClick={this.toggleLocationPicker}>
           <h4>{region}</h4>
         </div>
 

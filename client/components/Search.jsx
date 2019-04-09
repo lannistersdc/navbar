@@ -28,6 +28,8 @@ export default class Search extends Component {
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
     this.handleFindTableButton = this.handleFindTableButton.bind(this);
 
+    this.createTimes = this.createTimes.bind(this);
+    this.createPartySizes = this.createPartySizes.bind(this);
   }
 
   componentDidMount() {
@@ -115,6 +117,27 @@ export default class Search extends Component {
 
   }
 
+  createTimes() {
+    let options = [];
+    for (let i = 8; i <= 12; i++) (
+      options.push(<option value={`${i}:00 AM`}>{i}:00 AM</option>)
+    )
+    for (let i = 1; i < 12; i++) (
+      options.push(<option value={`${i}:00 PM`}>{i}:00 PM</option>)
+    )
+    return options;
+  }
+
+  createPartySizes() {
+    let options = [];
+    options.push(<option value="1 person">1 person</option>)
+    for (let i = 2; i <= 12; i++) (
+      options.push(<option value={`${i} people`}>{i} people</option>)
+    )
+    options.push(<option value="Larger party">Larger party</option>)
+    return options;
+  }
+
   render() {
     const { value, suggestions } = this.state;
 
@@ -149,13 +172,13 @@ export default class Search extends Component {
 
               <div className={styles.time}>
                 <select>
-                  <option value="13:00">1:00 PM</option>
+                  {this.createTimes()}
                 </select>
               </div>
 
               <div className={styles.partySize}>
-              <select>
-                  <option value="2">2 people</option>
+                <select>
+                  {this.createPartySizes()}
                 </select>
               </div>
 
