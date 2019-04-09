@@ -40,18 +40,20 @@ export default class LocationPicker extends Component {
   }
 
   toggleLocationPicker(e) {
-    e.preventDefault();
+    // e.preventDefault();
     // let opened = !this.state.opened
-    this.setState({ opened: true }, () => {
-      document.addEventListener('click', this.closeLocationPicker);
-    })
+    // this.setState({ opened: true }, () => {
+    //   document.addEventListener('click', this.closeLocationPicker);
+    // })
+
+    document.getElementById("location-menu").style.display = "flex";
+    document.addEventListener('click', this.closeLocationPicker);
   }
 
   closeLocationPicker() {
-    if (!this.dropdownMenu.contains(event.target)) {
-      this.setState({ opened: false }, () => {
-        document.removeEventListener('click', this.closeLocationPicker);
-      })
+    if (document.getElementById("location-menu").style.display === "flex") {
+      document.getElementById("location-menu").style.display = "none";
+      document.removeEventListener('click', this.closeLocationPicker);
     }
   }
 
@@ -63,21 +65,21 @@ export default class LocationPicker extends Component {
           <h4>{region}</h4>
         </div>
 
-        {this.state.opened && 
-          <div className={styles.locationtable}>
+        {/* {this.state.opened &&  */}
+          <div id="location-menu" className={styles.showLocationMenu}>
 
-            <div id="metros">
+            <div id="metros" >
               <h4>
               Metro
               </h4>
-              <OverflowScrolling className={styles.overflowMetro}>
-                <div className="menu" ref={(element) => { this.dropdownMenu = element }}>
-                  <ul><a href="#" className={styles.selected}>Los Angeles</a></ul>
+              <div className={styles.overflowMetro}>
+                <ul>
+                  <li><a href="#" className={styles.selected}>Los Angeles</a></li>
                   {this.state.metros.map(metro => (
-                    <ul><a href="#" className={styles.selector}>{metro}</a></ul>
+                    <li><a href="#" className={styles.selector}>{metro}</a></li>
                   ))}
-                </div>
-              </OverflowScrolling>
+                </ul>
+              </div>
 
             </div>
 
@@ -85,17 +87,17 @@ export default class LocationPicker extends Component {
               <h4>
                 Region
               </h4>
-              <OverflowScrolling className={styles.overflowRegion}>
-                <div className="menu" >
+              <div className={styles.overflowMetro}>
+                <ul className="menu" >
                   {this.state.regions.map(regionName => (
-                    <ul><a href="#" className={ regionName !== region ? styles.selector : styles.selected}>{regionName}</a></ul>
+                    <li><a href="#" className={ regionName !== region ? styles.selector : styles.selected}>{regionName}</a></li>
                   ))}
-                </div>
-              </OverflowScrolling>
+                </ul>
+              </div>
 
             </div>
           </div>
-        }
+        {/* } */}
 
       </div>
     )
