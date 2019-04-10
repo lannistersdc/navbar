@@ -111,7 +111,7 @@ export default class UserView extends Component {
           {/* </div> */}
 
           {/* <div className="helloUser"> */}
-          <li className={styles.dropdown} onClick={this.toggleUserMenuOpened}>Hi, Liezel</li>
+          <li className={styles.dropdown} onClick={this.toggleUserMenuOpened} style={{borderLeft: "1px solid rgba(0,0,0,.08)"}}>Hi, Liezel</li>
             {/* {this.state.userMenuOpened &&  */}
               <div id="user-options" className={styles.showUserMenu}>
 

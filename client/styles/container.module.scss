@@ -1,5 +1,5 @@
 $border: 1px solid rgba(0,0,0,.08);
-$devborder: 1px solid rgb(170, 0, 255);
+$devborder: 0px solid rgb(170, 0, 255);
 
 // body
 body {
@@ -18,27 +18,33 @@ body {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  height: 3.375rem;
+  height: 4rem;
   .component {
     border-left: $border;
+    border-right: $border;
     // border: 1px solid green;
   }
 }
 
 .Logo {
   border: $devborder;
-  display: block;
-  width: 9.75rem;
+  display: flex;
+  justify-content: center;
+  width: 8.50rem;
+  padding-left: 2rem;
+  padding-right: 2rem
   // height: 3.375rem;
 }
 
 .LocationPicker {
   border: $devborder;
   margin-right: auto;
-  padding: 0 1rem 0 0;
+  padding-left: 1.5rem;
+  padding-right: 20px;
+  // padding: 0 1rem 0 0;
   // height: 3.375rem;
   // position: absolute;
-  right: 0;
+  // right: 0;
 }
 
 // UserView.jsx
@@ -50,6 +56,7 @@ body {
   // justify-content: flex-end;
   li {
     display: inline;
+    padding-left: 12px;
   }
 }
 
@@ -67,6 +74,8 @@ body {
 
 .Search {
   border: $devborder;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 

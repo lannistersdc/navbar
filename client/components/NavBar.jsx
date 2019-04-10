@@ -76,7 +76,7 @@ export default class NavBar extends Component {
           </div>
         }
 
-          <div className={styles.component+ ' ' + styles.Search}>
+          <div className={styles.Search}>
             <Search fetchRestaurant={this.fetchRestaurant} restaurantId={this.state.restaurantId}/>
           </div>
 

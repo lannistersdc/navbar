@@ -1,11 +1,8 @@
 /* Style the list */
 .breadcrumb {
   height: 2rem;
-  line-height: 1.9rem;
+  line-height: .5rem;
   font-size: .75rem;
-  border-top: 1px solid rgba(0,0,0,.08);
-  border-bottom: none;
-  padding: 0 1.25rem;
 }
 
 /* Display list items side by side */
@@ -13,7 +10,6 @@
   position: relative;
   display: block;
   float: left;
-  margin: 0 1rem 0 .35rem;
 }
 
 /* Add a color to all links inside the list */
