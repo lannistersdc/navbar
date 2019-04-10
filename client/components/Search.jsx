@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import DayPicker from './DayPicker.jsx';
 import Autosuggest from 'react-autosuggest';
 import styles from '../styles/search.module.scss';
 import theme from '../styles/autosuggest.module.scss';
@@ -180,7 +179,7 @@ export default class Search extends Component {
             <div className={styles.selections}>
 
               <label>
-                <DayPicker />
+                <input placeholder="Calendar here"/>
               </label>
 
               <label>
