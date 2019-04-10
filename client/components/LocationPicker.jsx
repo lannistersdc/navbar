@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import OverflowScrolling from 'react-overflow-scrolling';
-import styles from '../locations.module.scss';
+import styles from '../styles/locations.module.scss';
 
 export default class LocationPicker extends Component {
   constructor(props) {

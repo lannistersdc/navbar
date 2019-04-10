@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../container.module.scss';
+import styles from '../styles/container.module.scss';
 
 export default class GuestView extends Component {
   constructor(props) {

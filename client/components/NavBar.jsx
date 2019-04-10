@@ -6,7 +6,9 @@ import Search from './Search.jsx';
 import GuestView from './GuestView.jsx';
 import UserView from './UserView.jsx';
 import axios from 'axios';
-import styles from '../container.module.scss';
+import styles from '../styles/container.module.scss';
+
+import SVG from '../svg/person.jsx'
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -97,6 +99,12 @@ export default class NavBar extends Component {
           Cuisine: {restaurantCuisine}
           <br />
           Location: {location}
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <SVG />
         </div>
         
         {/* END OF PARENT DIV */}

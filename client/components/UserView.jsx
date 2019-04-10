@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../user.module.scss';
+import styles from '../styles/user.module.scss';
 
 export default class UserView extends Component {
   constructor(props) {
