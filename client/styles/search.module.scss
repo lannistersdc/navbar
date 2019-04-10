@@ -1,6 +1,6 @@
 .searchButton {
-  display: flex;
-  
+  display: block;
+  position: absolute;
 }
 
 .header {
@@ -24,6 +24,7 @@
     display: flex;
     justify-content: flex-end;
   }
+  
 }
 
 

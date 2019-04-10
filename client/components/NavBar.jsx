@@ -8,6 +8,8 @@ import UserView from './UserView.jsx';
 import axios from 'axios';
 import styles from '../styles/container.module.scss';
 
+import MagnifyingGlass from '../svg/magnifying-glass.jsx';
+
 import SVG from '../svg/person.jsx'
 
 export default class NavBar extends Component {
@@ -77,6 +79,7 @@ export default class NavBar extends Component {
         }
 
           <div className={styles.Search}>
+          {/* <MagnifyingGlass /> */}
             <Search fetchRestaurant={this.fetchRestaurant} restaurantId={this.state.restaurantId}/>
           </div>
 
