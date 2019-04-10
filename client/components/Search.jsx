@@ -3,6 +3,7 @@ import DayPicker from './DayPicker.jsx';
 import axios from 'axios';
 import Autosuggest from 'react-autosuggest';
 import styles from '../search.module.scss';
+import theme from '../autosuggest.module.scss';
 
 export default class Search extends Component {
   constructor(props) {
@@ -194,6 +195,7 @@ export default class Search extends Component {
                 getSuggestionValue={this.getSuggestionValue}
                 renderSuggestion={this.renderSuggestion}
                 inputProps={inputProps}
+                theme={theme}
                 />
                 <button name="find-table-btn" onClick={this.handleFindTableButton}>Find a Table</button>
               </form>
