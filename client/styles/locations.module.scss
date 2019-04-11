@@ -1,24 +1,50 @@
+$border: 1px solid rgba(0,0,0,.12);
+$selected-color: #237b98;
+
 .currentRegion {
   font-family: Helvetica;
   display: flex;
 }
 
+.subheader {
+  padding: 1rem;
+  border-bottom: $border
+}
+
+.subfooter {
+  padding: 1rem;
+  border-top: $border;
+}
+
 .showLocationMenu {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  left: 3rem;
+  background-color: #fff;
+  width: 638px;
+  height: 497px;
+  box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.1);
+  border-radius: 3px;
   padding: 0px; 
   z-index: 1;
   .overflowMetro {
     padding: 0px; 
-    width: 316px; 
+    width: 317px; 
     height: 400px;
     z-index: 1;
     overflow: auto;
     li {
-      display: flex;
-      flex-direction: column;
+      line-height: 16px;
+      font-size: 16px;
+      font-weight: 500;
+      display: block;
+      color: #999!important;
+      border-left: 3px solid transparent;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding: .8rem 1rem;
+      position: relative;
       .selector {
         color: #999!important;
         border-left: 3px solid transparent;
@@ -26,12 +52,20 @@
         white-space: nowrap;
         text-overflow: ellipsis;
       }
-      .selected {
-        color: #237b98!important;
-        background: #eef4fb;
-        border-color: #237b98;
-      }
     }
+    .selected {
+      color: $selected-color!important;
+      background: #eef4fb!important;
+      border-color: $selected-color;
+    }
+    li:hover {
+      color: $selected-color!important;
+      background: #eef4fb;
+      border-color: $selected-color
+    }
+  }
+  .overflowRegion {
+    border-left: $border
   }
 }
 
@@ -42,23 +76,23 @@
 
 // scraped:
 
-.location-picker-menu {
-  top: 90%;
-  left: 5px
-}
+// .location-picker-menu {
+//   top: 90%;
+//   left: 5px
+// }
 
-.location-picker-menu .menu-container {
-  width: 40rem;
-  left: -9.5rem
-}
+// .location-picker-menu .menu-container {
+//   width: 40rem;
+//   left: -9.5rem
+// }
 
-.location-picker-menu-list {
-  width: 100%
-}
+// .location-picker-menu-list {
+//   width: 100%
+// }
 
-.location-picker-menu-column {
-  border-right: 1px solid rgba(0,0,0,.12);
-  width: 50%;
-  float: left;
-  max-height: 25rem
-}
+// .location-picker-menu-column {
+//   border-right: 1px solid rgba(0,0,0,.12);
+//   width: 50%;
+//   float: left;
+//   max-height: 25rem
+// }

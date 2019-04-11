@@ -1,30 +1,45 @@
 $border: 1px solid rgba(0,0,0,.08);
 $devborder: 1px solid rgb(170, 0, 255);
 
-.dropdown {
+.userMenu {
   display: block;
   padding-right: 12px;
 }
 
-.userView {
-  border: $border;
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: flex-end;
-  li {
-    display: inline;
-  }
-}
-
-.showReservations {
-  border: $devborder;
+.dropdown {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
+  top: 4rem;
+  background-color: #fff;
+  width: 207px;
+  box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.1);
+  border-radius: 3px;
+  padding: 0px; 
   z-index: 1;
+}
+
+.dropdownUser {
+  @extend .dropdown ;
+  width: 201px;
+}
+
+.subheader {
+  padding: 16px;
+  font-size: 14px;
+  font-family: Helvetica;
+  border-bottom: $border;
+}
+
+.dropdownContent {
+  display: flex;
+  flex-direction: column;
+  padding: .8rem 1rem;
+  font-size: 14px;
+  font-family: Helvetica;
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .showUserMenu {
