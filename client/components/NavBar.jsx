@@ -8,9 +8,9 @@ import UserView from './UserView.jsx';
 import axios from 'axios';
 import styles from '../styles/container.module.scss';
 
-import MagnifyingGlass from '../svg/magnifying-glass.jsx';
+import 'react-dates/initialize';
 
-import SVG from '../svg/person.jsx'
+// import SVG from '../svg/person.jsx'
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -107,7 +107,7 @@ export default class NavBar extends Component {
           <br />
           <br />
           <br />
-          <SVG />
+          {/* <SVG /> */}
         </div>
         
         {/* END OF PARENT DIV */}

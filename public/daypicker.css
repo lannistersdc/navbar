@@ -1,0 +1,88 @@
+
+.navBarCalendar .DateInput_input {
+  padding-left: .5rem;
+}
+
+.navBarCalendar .DayPickerNavigation_button__horizontalDefault {
+  border: none;
+  background: url(./arrow.svg);
+  top: 1.75rem;
+}
+
+.navBarCalendar .DayPickerNavigation_svg__horizontal {
+  fill: #da3743;
+  display: none;
+}
+
+.navBarCalendar .DayPickerNavigation_button.DayPickerNavigation_button_1.DayPickerNavigation_button__default.DayPickerNavigation_button__default_2.DayPickerNavigation_button__horizontal.DayPickerNavigation_button__horizontal_3.DayPickerNavigation_button__horizontalDefault.DayPickerNavigation_button__horizontalDefault_4.DayPickerNavigation_leftButton__horizontalDefault.DayPickerNavigation_leftButton__horizontalDefault_5 {
+  transform: rotate(90deg);
+}
+
+.navBarCalendar .DayPickerNavigation_button.DayPickerNavigation_button_1.DayPickerNavigation_button__default.DayPickerNavigation_button__default_2.DayPickerNavigation_button__horizontal.DayPickerNavigation_button__horizontal_3.DayPickerNavigation_button__horizontalDefault.DayPickerNavigation_button__horizontalDefault_4.DayPickerNavigation_rightButton__horizontalDefault.DayPickerNavigation_rightButton__horizontalDefault_5 {
+  transform: rotate(270deg);
+}
+
+.navBarCalendar .DayPickerNavigation_button__default:hover {
+  border: none;
+}
+
+
+.navBarCalendar .DayPicker_weekHeader_li {
+  width: 14.285714286%;
+  font-size: .875rem;
+  padding-bottom: .5rem;
+  color: #999;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.navBarCalendar .CalendarDay__default {
+  /* border: #da3743; */
+  border: none;
+  color: #333;
+  margin: 0 auto;
+  padding-top: .1rem;
+  border-radius: 100%;
+}
+
+/* .navBarCalendar .today {
+  color: black;
+  background: rgba(0,0,0,.06);
+} */
+
+.navBarCalendar .CalendarDay__selected {
+  background: #da3743;
+  border: #da3743;
+  border-radius: 100%;
+  color: #fff;
+  margin: 0 auto;
+  /* width: 2rem;
+  height: 2rem;
+  line-height: 1.95;
+  text-align: center; */
+}
+
+.navBarCalendar .CalendarDay__default:hover {
+  color: #da3743;
+  cursor: pointer;
+  background: #f7d7d9;
+  border: #f7d7d9;
+  border-radius: 100%;
+}
+
+.navBarCalendar .CalendarDay__blocked_out_of_range {
+  color: rgba(0,0,0,.12);
+  cursor: default;
+}
+
+.navBarCalendar .CalendarDay__blocked_out_of_range:hover {
+  color: rgba(0,0,0,.12);
+  cursor: default;
+  background: #fff;
+  border: none;
+} 
+
+.navBarCalendar .CalendarDay__outside {
+  color: #999;
+}

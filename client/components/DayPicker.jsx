@@ -1,30 +1,70 @@
 import React, { Component } from 'react';
-import DayPickerInput from 'react-day-picker/DayPickerInput';
-// import 'react-day-picker/lib/style.css';
-// import '../search.module.scss';
-// CSS is not importing
+import { SingleDatePicker } from 'react-dates';
+// CSS for react-dates in node modules
+import 'react-dates/lib/css/_datepicker.css';
 
-export default class Calendar extends Component {
+
+export default class DayPicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDay: undefined
+      focused: false,
+      date: null
     };
-    this.handleDayChange = this.handleDayChange.bind(this);
+
+    this.onDateChange = this.onDateChange.bind(this);
+    this.onFocusChange = this.onFocusChange.bind(this);
   }
 
-  handleDayChange(day) {
-    this.setState({ selectedDay: day });
+  // componentDidMount() {
+  //   let date = (new Date()).toDateString();
+  //   this.setState({
+  //     date
+  //   }, () => console.log(this.state.date));
+  // }
+
+  onDateChange(date) {
+    this.setState({ date });
+  }
+
+  onFocusChange({ focused }) {
+    this.setState({ focused });
   }
 
   render() {
-    const { selectedDay } = this.state;
-    return (
-      <div>
-        {selectedDay && <p>{selectedDay.toLocaleDateString()}</p>}
-        <DayPickerInput onDayChange={this.handleDayChange} />
-      </div>
-    )
-  }
+    const { focused, date } = this.state;
+    let today = (new Date()).toDateString().slice(4).split(' 201').join(', 201');
 
+    return (
+      <div className="navBarCalendar">
+        <SingleDatePicker
+          id="date_input"
+          date={date} 
+          focused={focused} 
+          onDateChange={this.onDateChange}
+          onFocusChange={this.onFocusChange}
+          numberOfMonths={1}
+          enableOutsideDays={true}
+          firstDayOfWeek={null}
+          displayFormat="MMM DD, YYYY"
+          hideKeyboardShortcutsPanel
+          weekDayFormat="ddd"
+          placeholder={today}
+          noBorder
+  
+          // disabled={false}
+          // isDayHighlighted={() => {}}
+          // placeholder={Date()}
+          // focusedDate=b{…}
+          // horizontalMonthPadding={13}
+          // isFocused=false
+          // isVisible=true
+          // modifiers={…}
+          // month=b{…}
+          
+      />
+
+      </div>
+    );
+  }
 }

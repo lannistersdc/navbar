@@ -21,7 +21,22 @@ module.exports = {
         }
       },
       {
+        test: /node_modules\/.*\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
         test: /\.s?css$/,
+        exclude: /node_modules/,
         loader: combinedLoaders([
           {
             loader: 'style-loader'
