@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Autosuggest from 'react-autosuggest';
+import AutoSuggest from './AutoSuggest.jsx';
+import DayPicker from './DayPicker.jsx';
+
+// CSS for component
 import styles from '../styles/search.module.scss';
+
+// CSS for autosuggest 
 import theme from '../styles/autosuggest.module.scss';
 
 export default class Search extends Component {
@@ -9,27 +14,17 @@ export default class Search extends Component {
     super(props);
     this.state = {
       opened: false,
-      date: '',
       time: '',
       partySize: 2,
-      value: '',
-      suggestions: [],
       restaurantNames: [],
       restaurantCuisines: [],
       metros: [],
       regions: []
     }
     this.toggleSearch = this.toggleSearch.bind(this);
-    this.getSuggestions = this.getSuggestions.bind(this);
-    this.getSuggestionValue = this.getSuggestionValue.bind(this);
-    this.renderSuggestion = this.renderSuggestion.bind(this);
-    this.onChange = this.onChange.bind(this);
-    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
-    this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
-    this.handleFindTableButton = this.handleFindTableButton.bind(this);
-
     this.createTimes = this.createTimes.bind(this);
     this.createPartySizes = this.createPartySizes.bind(this);
+    this.handleFindTableButton = this.handleFindTableButton.bind(this);
   }
 
   componentDidMount() {
@@ -67,54 +62,10 @@ export default class Search extends Component {
     }, () => console.log(`Search opened: ${this.state.opened}`))
   }
 
-  getSuggestions(value) {
-    const inputValue = value.trim().toLowerCase();
-    const inputLength = inputValue.length;
-  
-    return inputLength === 0 ? []: this.state.metros.filter(metro => metro.toLowerCase().slice(0, inputLength) === inputValue);
-  }
-  
-  getSuggestionValue(suggestion) {
-    return suggestion.name
-  }
-  
-  renderSuggestion(suggestion) {
-    return (
-    <div>
-      {suggestion}
-    </div>
-    ) 
-  }
-  
-
-  onChange(e, { newValue }) {
-    // let value = e.target.value;
-    // predictive search function goes here
-    this.setState({ 
-      value: newValue 
-    }, () => console.log(this.state.value))
-  }
-
-  onSuggestionsFetchRequested({ value }) {
-    this.setState({
-      suggestions: this.getSuggestions(value)
-    })
-  }
-
-  onSuggestionsClearRequested() {
-    this.setState({
-      suggestions: []
-    })
-  }
-
   handleFindTableButton(e) {
     e.preventDefault();
-    // let id = e.target.id
-    // for now, hardcoded:
     let restaurantId = this.props.restaurantId + 1;
     this.props.fetchRestaurant(restaurantId);
-    // page rerenders based on restaurantId clicked
-
   }
 
   createTimes() {
@@ -139,13 +90,7 @@ export default class Search extends Component {
   }
 
   render() {
-    const { value, suggestions } = this.state;
-
-    const inputProps = {
-      placeholder: 'Location, Restaurant, or Cuisine',
-      value,
-      onChange: this.onChange
-    }
+    let {restaurantNames, restaurantCuisines, metros, regions} = this.state;
 
     return (
       <div>
@@ -167,51 +112,49 @@ export default class Search extends Component {
           <div className={styles.header}>
 
             <div className={styles.close}>
-            <button onClick={this.toggleSearch}><h6>X</h6></button>
+              <button onClick={this.toggleSearch}><h6>X</h6></button>
             </div>
 
-            <div className={styles.title}>
+            <div>
               <h3>
-                <span>Find your table for any occasion:</span>
+                <span>Find your table for any occasion</span>
               </h3>
             </div>
 
-            <div className={styles.selections}>
+            <div className={styles.selectionscontainer}>
 
               <label>
-                <input placeholder="Calendar here"/>
+                <div className={styles.selector}>
+                <DayPicker />
+                </div>
               </label>
 
               <label>
-                <select className={styles.time}>
+                <select className={styles.selector}>
                   {this.createTimes()}
                 </select>
               </label>
 
-              <label className={styles.partySize}>
-                <select>
+              <label>
+                <select className={styles.selector}>
                   {this.createPartySizes()}
                 </select>
               </label>
 
-            </div>
-
-            <label className={styles.searchInput}>
-              <form>
-                {/* <input onChange={this.onChange} value={this.state.value} placeholder="Location, Restaurant, or Cuisine"></input><br /> */}
-                <Autosuggest
-                suggestions={suggestions}
-                onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-                onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-                getSuggestionValue={this.getSuggestionValue}
-                renderSuggestion={this.renderSuggestion}
-                inputProps={inputProps}
-                theme={theme}
+              <div className={styles.autosuggest}>
+                <AutoSuggest 
+                restaurantNames={restaurantNames}
+                restaurantCuisines={restaurantCuisines}
+                metros={metros}
+                regions={regions}
                 />
-                <button name="find-table-btn" onClick={this.handleFindTableButton}>Find a Table</button>
-              </form>
-            </label>
-            
+              </div>
+
+              <div className={styles.searchbutton}>
+                <button name="find-table-btn">Find a Table</button>
+              </div>
+
+            </div>
 
           </div>
         }
