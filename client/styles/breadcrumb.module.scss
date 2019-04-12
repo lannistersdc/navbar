@@ -1,8 +1,11 @@
+$border: 1px solid rgba(0,0,0,.12);
+$selected-color: #237b98;
 /* Style the list */
 .breadcrumb {
   height: 2rem;
   line-height: .5rem;
   font-size: .75rem;
+  padding: 0 1.25rem;
 }
 
 /* Display list items side by side */
@@ -14,14 +17,14 @@
 
 /* Add a color to all links inside the list */
 .breadcrumb li a {
-  color: #237b98;
+  color: $selected-color;
   text-decoration: none;
 }
 
 /* Add a color on mouse-over */
 .breadcrumb li a:hover {
   color: #01447e;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 ul.breadcrumb li+li:before {
