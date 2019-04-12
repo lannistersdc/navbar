@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import LocationPin from '../svg/location-pin.jsx';
 import axios from 'axios';
-import OverflowScrolling from 'react-overflow-scrolling';
 import styles from '../styles/locations.module.scss';
+import ArrowDown from '../svg/arrow-down.jsx';
 
 export default class LocationPicker extends Component {
   constructor(props) {
@@ -39,13 +40,7 @@ export default class LocationPicker extends Component {
     })
   }
 
-  toggleLocationPicker(e) {
-    // e.preventDefault();
-    // let opened = !this.state.opened
-    // this.setState({ opened: true }, () => {
-    //   document.addEventListener('click', this.closeLocationPicker);
-    // })
-
+  toggleLocationPicker() {
     document.getElementById("location-menu").style.display = "flex";
     document.addEventListener('click', this.closeLocationPicker);
   }
@@ -62,42 +57,64 @@ export default class LocationPicker extends Component {
     return (
       <div>
         <div className={styles.currentRegion} onClick={this.toggleLocationPicker}>
-          <h4>{region}</h4>
+          <div className={styles.pin}>
+            <LocationPin />
+          </div>
+          <div className={styles.region}>
+            {region}
+          </div>
+          <div className={styles.arrow}>
+            <ArrowDown />
+          </div>
         </div>
 
-        {/* {this.state.opened &&  */}
           <div id="location-menu" className={styles.showLocationMenu}>
 
             <div id="metros" >
-              <h4>
-              Metro
-              </h4>
+
+              <div className={styles.subheader}>
+                Metro
+              </div>
+
               <div className={styles.overflowMetro}>
-                <ul>
-                  <li><a href="#" className={styles.selected}>Los Angeles</a></li>
+                <div>
+                  <li className={styles.selected}><a href="#" style={{textDecoration: "none", color: "#237b98"}}>Los Angeles</a></li>
                   {this.state.metros.map(metro => (
-                    <li><a href="#" className={styles.selector}>{metro}</a></li>
+                    <li><a href="#" className={styles.selector} style={{textDecoration: "none"}}>{metro}</a></li>
                   ))}
-                </ul>
+                </div>
+              </div>
+              
+              <div className={styles.subfooter}>
+              <a href="#" style={{textDecoration: "none"}}>Full List of Metros</a>
               </div>
 
             </div>
 
             <div id="regions">
-              <h4>
+              
+              <div className={styles.subheader}>
                 Region
-              </h4>
-              <div className={styles.overflowMetro}>
-                <ul className="menu" >
+              </div>
+
+              <div className={styles.overflowMetro+ ' ' +styles.overflowRegion}>
+                <div className="menu" >
                   {this.state.regions.map(regionName => (
-                    <li><a href="#" className={ regionName !== region ? styles.selector : styles.selected}>{regionName}</a></li>
+                    <li className={ regionName === region ? styles.selected : "none"} >
+                      <a href="#" className={ regionName !== region ? styles.selector : "none"} 
+                      style={{textDecoration: "none", color: "#237b98"}}>{regionName}</a>
+                    </li>
                   ))}
-                </ul>
+                </div>
+              </div>
+
+              <div className={styles.subfooter}>
+              
               </div>
 
             </div>
+
           </div>
-        {/* } */}
 
       </div>
     )

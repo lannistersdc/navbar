@@ -1,39 +1,83 @@
 $border: 1px solid rgba(0,0,0,.08);
 $devborder: 1px solid rgb(170, 0, 255);
 
-.dropdown {
-  display: block;
-  padding-right: 12px;
+.userContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.userView {
-  border: $border;
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: flex-end;
-  li {
-    display: inline;
+.calendar {
+  padding-right: 12px;
+  background: url(../calendar.png) no-repeat;
+  background-size: 20px;
+  width: 10px;
+  color: transparent;
+}
+
+.calendar:hover {
+  @extend .calendar ;
+  cursor: pointer;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .helloUser {
+    padding-left: 2px;
+    border-left: 1px solid rgba(0,0,0,.08);
+    height: 18px;
+    color: #333;
+  }
+  .arrow {
+    padding-top: 28px;
   }
 }
 
-.showReservations {
-  border: $devborder;
+.welcome:hover {
+  @extend .welcome ;
+  cursor: pointer;
+  color: black;
+  .arrow:hover {
+    cursor: pointer;
+    color: black;
+  }
+}
+
+.dropdown {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
+  top: 5rem;
+  right: 1.5rem;
+  background-color: #fff;
+  width: 207px;
+  box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.1);
+  border-radius: 3px;
+  padding: 0px; 
   z-index: 1;
 }
 
-.showUserMenu {
-  border: $devborder;
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
+.dropdownUser {
+  @extend .dropdown ;
+  width: 201px;
+}
+
+.subheader {
+  padding: 16px;
+  font-size: 14px;
+  font-family: Helvetica;
+  border-bottom: $border;
+}
+
+.dropdownContent {
+  display: flex;
+  flex-direction: column;
+  padding: .8rem 1rem;
+  font-size: 14px;
+  font-family: Helvetica;
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }

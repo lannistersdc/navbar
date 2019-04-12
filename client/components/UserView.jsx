@@ -37,13 +37,6 @@ export default class UserView extends Component {
   }
 
   toggleReservationView() {
-    // e.preventDefault();
-    // let reservationViewOpened = !this.state.reservationViewOpened;
-    // this.setState({ 
-    //   reservationViewOpened 
-    // }, () => console.log(`Reservation View opened: ${this.state.reservationViewOpened}`))
-    // also if user clicks outside of usermenu, close view
-
     document.getElementById("reservation-info").style.display = "block";
     document.addEventListener('click', this.closeReservationView);
   }
@@ -56,13 +49,6 @@ export default class UserView extends Component {
   }
 
   toggleUserMenuOpened() {
-    // e.preventDefault();
-    // let userMenuOpened = !this.state.userMenuOpened;
-    // this.setState({ 
-    //   userMenuOpened 
-    // }, () => console.log(`UserMenu View opened: ${this.state.userMenuOpened}`))
-    // also if user clicks outside of usermenu, close menu
-
     document.getElementById("user-options").style.display = "block";
     document.addEventListener('click', this.closeUserMenu);
   }
@@ -77,21 +63,22 @@ export default class UserView extends Component {
   render() {
     let { restaurantName, date, time, partySize } = this.state;
     return (
-      <div>
+      <div className={styles.userContainer}>
       
-        <ul>
-        
-          {/* <div className="upcoming"> */}
-            <li className={styles.dropdown} onClick={this.toggleReservationView}>Upcoming</li>
+        <div className={styles.calendar} onClick={this.toggleReservationView}>
+          {/* calendar is here */}
+          {/* clicking this will display reservation-info */}
+          upcoming
+        </div>
             
-            {/* {this.state.reservationViewOpened &&  */}
-              <div id="reservation-info" className={styles.showReservations}>
-                <div>
-                  <h5>UPCOMING</h5>
+        <div id="reservation-info" className={styles.dropdown}>
+
+                <div className={styles.subheader}>
+                  UPCOMING
                 </div>
 
-                <div>
-                  <h6>{restaurantName}</h6>
+                <div className={styles.dropdownContent}>
+                  {restaurantName}
                   <p>Table for {partySize} people</p>
                   <p>{date} {time}</p>
 
@@ -105,36 +92,46 @@ export default class UserView extends Component {
                   <h5>View All</h5>
                 </div>
 
-              </div>
-            {/* } */}
+        </div>
 
-          {/* </div> */}
+        <div className={styles.welcome} onClick={this.toggleUserMenuOpened}>
+          <div className={styles.helloUser}>
+            Hi, Liezel
+          </div>
+          <div className={styles.arrow}>
+            <svg
+              width="30px"
+              height="30px"
+              viewBox="0 0 10 32"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+            >
+              <g>
+              <path d="M4.39 5.09l.71-.71 2.82-2.82a.5.5 0 0 0 0-.71l-.7-.7a.5.5 0 0 0-.71 0L4 2.62 1.56.15a.5.5 0 0 0-.71 0l-.7.7a.5.5 0 0 0 0 .71L3 4.39l.71.71a.5.5 0 0 0 .68-.01z"  stroke="none" fill="rgba(0,0,0,.12)" strokeWidth="1px" />
+              </g>
+            </svg>
+          </div>
+          {/* clicking this will display user-options */}
+        </div>
+  
+        <div id="user-options" className={styles.dropdownUser}>
 
-          {/* <div className="helloUser"> */}
-          <li className={styles.dropdown} onClick={this.toggleUserMenuOpened} style={{borderLeft: "1px solid rgba(0,0,0,.08)"}}>Hi, Liezel</li>
-            {/* {this.state.userMenuOpened &&  */}
-              <div id="user-options" className={styles.showUserMenu}>
-
-                <div>
+                <div className={styles.subheader}>
                   <p>point information</p>
                 </div>
 
-                <div>
-                  <ul>
-                    <li><a href="#">My Profile</a></li><br />
-                    <li><a href="#">My Dining History</a></li><br />
-                    <li><a href="#">My Saved Restaurants</a></li><br />
-                    <li><a href="#">My Profile</a></li><br />
-                    <li><a href="#">Signout</a></li><br />
-                  </ul>
+                <div className={styles.dropdownContent}>
+                  
+                  <li><a href="#">My Profile</a></li><br />
+                  <li><a href="#">My Dining History</a></li><br />
+                  <li><a href="#">My Saved Restaurants</a></li><br />
+                  <li><a href="#">My Profile</a></li><br />
+                  <li><a href="#">Signout</a></li><br />
+                  
                 </div>
 
-              </div>
-            {/* } */}
+        </div>
 
-          {/* </div> */}
-
-        </ul>
 
       </div>
     )
