@@ -1,6 +1,9 @@
+.magnifyingGlass:hover {
+  cursor: pointer;
+  color: black;
+}
+
 .header {
-  // visibility: hidden;
-  // opacity: 0;
   transform-origin: top;
   transition: opacity .3s linear;
   position: fixed;
@@ -12,31 +15,25 @@
   z-index: 1;
   visibility: visible;
   opacity: 1;
-  // padding-bottom: 64px;
   box-shadow: 0 2px 8px rgba(153,153,153,.4);
-  // padding-top: 2.25rem;
-  // padding-left: 2.25rem;
-  // padding-right: 2.25rem;
   padding-bottom: 64px;
   .close {
     display: flex;
     justify-content: flex-end;
   }
-  
+  h3 {
+    padding-top: 2.25rem;
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0 0 24px;
+  }
 }
 
-h3 {
-  padding-top: 2.25rem;
-  padding-left: 2.25rem;
-  padding-right: 2.25rem;
-  text-align: center;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1.5;
-  margin: 0 0 24px;
-}
-
-.selectionscontainer {
+.selectionsContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

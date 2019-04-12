@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import LocationPin from '../svg/location-pin.jsx';
 import axios from 'axios';
-import OverflowScrolling from 'react-overflow-scrolling';
 import styles from '../styles/locations.module.scss';
+import ArrowDown from '../svg/arrow-down.jsx';
 
 export default class LocationPicker extends Component {
   constructor(props) {
@@ -56,7 +57,15 @@ export default class LocationPicker extends Component {
     return (
       <div>
         <div className={styles.currentRegion} onClick={this.toggleLocationPicker}>
-          <h4>{region}</h4>
+          <div className={styles.pin}>
+            <LocationPin />
+          </div>
+          <div className={styles.region}>
+            {region}
+          </div>
+          <div className={styles.arrow}>
+            <ArrowDown />
+          </div>
         </div>
 
           <div id="location-menu" className={styles.showLocationMenu}>
@@ -69,7 +78,7 @@ export default class LocationPicker extends Component {
 
               <div className={styles.overflowMetro}>
                 <div>
-                  <li className={styles.selected}><a href="#" style={{textDecoration: "none"}}>Los Angeles</a></li>
+                  <li className={styles.selected}><a href="#" style={{textDecoration: "none", color: "#237b98"}}>Los Angeles</a></li>
                   {this.state.metros.map(metro => (
                     <li><a href="#" className={styles.selector} style={{textDecoration: "none"}}>{metro}</a></li>
                   ))}
@@ -93,7 +102,7 @@ export default class LocationPicker extends Component {
                   {this.state.regions.map(regionName => (
                     <li className={ regionName === region ? styles.selected : "none"} >
                       <a href="#" className={ regionName !== region ? styles.selector : "none"} 
-                      style={{textDecoration: "none"}}>{regionName}</a>
+                      style={{textDecoration: "none", color: "#237b98"}}>{regionName}</a>
                     </li>
                   ))}
                 </div>

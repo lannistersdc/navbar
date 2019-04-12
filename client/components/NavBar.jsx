@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Topbar from './Topbar.jsx';
 import Logo from './Logo.jsx';
 import Breadcrumb from './Breadcrumb.jsx';
 import LocationPicker from './LocationPicker.jsx';
@@ -7,10 +8,8 @@ import GuestView from './GuestView.jsx';
 import UserView from './UserView.jsx';
 import axios from 'axios';
 import styles from '../styles/container.module.scss';
-
 import 'react-dates/initialize';
 
-// import SVG from '../svg/person.jsx'
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -53,39 +52,39 @@ export default class NavBar extends Component {
     return (
       <div>
         {/* START OF PARENT DIV */}
+        <Topbar />
 
         <div className={styles.container}>
-        {/* START OF CONTAINER */}
 
-          <div className={styles.Logo}>
-            <Logo />
-          </div>
-          
-          <div className={styles.component+ ' ' + styles.LocationPicker}>
-            <LocationPicker region={location[1]} city={location[0]}/>
-          </div>
+                <div className={styles.Logo}>
+                  <Logo />
+                </div>
+                
+                <div className={styles.componentWithBorder+ ' ' + styles.LocationPicker}>
+                  <LocationPicker region={location[1]} city={location[0]}/>
+                </div>
 
-        
-        {this.state.isLoggedIn &&
-          <div className={styles.UserView}>
-            <UserView />
-          </div>
-        }
+              
+              {this.state.isLoggedIn &&
+                <div className={styles.UserView}>
+                  <UserView />
+                </div>
+              }
 
-        {!this.state.isLoggedIn &&
-          <div className={styles.GuestView}>
-            <GuestView />
-          </div>
-        }
+              {!this.state.isLoggedIn &&
+                <div className={styles.GuestView}>
+                  <GuestView />
+                </div>
+              }
 
-          <div className={styles.Search}>
-          {/* <MagnifyingGlass /> */}
-            <Search fetchRestaurant={this.fetchRestaurant} restaurantId={this.state.restaurantId}/>
-          </div>
+                <div className={styles.Search}>
+                {/* <MagnifyingGlass /> */}
+                  <Search fetchRestaurant={this.fetchRestaurant} restaurantId={this.state.restaurantId}/>
+                </div>
 
-        </div>
-        
-        {/* END OF CONTAINER */}
+              </div>
+              
+
 
         <div id="breadcrumb" className={styles.breadcrumb}>
           <Breadcrumb region={location[1]} city={location[0]}/>
