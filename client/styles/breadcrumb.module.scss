@@ -3,22 +3,22 @@ $selected-color: #237b98;
 /* Style the list */
 .breadcrumb {
   height: 2rem;
-  line-height: .5rem;
+  line-height: 1.5rem;
   font-size: .75rem;
   padding: 0 1.25rem;
-}
-
-/* Display list items side by side */
-.breadcrumb li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  li {
   position: relative;
   display: block;
   float: left;
-}
-
-/* Add a color to all links inside the list */
-.breadcrumb li a {
+  margin-right: 20px;
+  a {
   color: $selected-color;
   text-decoration: none;
+  }
+  }
 }
 
 /* Add a color on mouse-over */
@@ -27,9 +27,27 @@ $selected-color: #237b98;
   text-decoration: none;
 }
 
-ul.breadcrumb li+li:before {
-  padding: 8px;
-  color: black;
-  content: "/\00a0";
+.breadcrumb li::before {
+  position: absolute;
+  margin-left: .25rem;
+  border-top: .96rem solid transparent;
+  border-bottom: .96rem solid transparent;
+  border-left: .6rem solid rgba(0,0,0,.2);
 }
 
+.breadcrumb li::after {
+  top: 0;
+  border-top: .96rem solid transparent;
+  border-bottom: 20rem solid transparent;
+  border-left: .56rem solid #fff;
+  content: " ";
+  padding-right: 8px;
+}
+
+.breadcrumb li:after, .breadcrumb li:before {
+  top: -1px;
+  content: " ";
+  position: absolute;
+  left: 100%;
+  margin-left: .25rem;  
+}

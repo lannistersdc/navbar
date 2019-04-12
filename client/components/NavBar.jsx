@@ -89,25 +89,6 @@ export default class NavBar extends Component {
         <div id="breadcrumb" className={styles.breadcrumb}>
           <Breadcrumb region={location[1]} city={location[0]}/>
         </div>
-
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className={styles.resData}>
-          Name: {restaurantName}
-          <br />
-          Cuisine: {restaurantCuisine}
-          <br />
-          Location: {location}
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          {/* <SVG /> */}
-        </div>
         
         {/* END OF PARENT DIV */}
       </div>
