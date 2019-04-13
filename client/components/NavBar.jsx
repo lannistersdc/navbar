@@ -35,8 +35,8 @@ export default class NavBar extends Component {
 
   fetchRestaurant(restaurantId) {
     axios
-    // .get(`/restaurant/${restaurantId}`)
-    .get(`http://localhost:3000/api/navbar/${restaurantId}`)
+    .get(`/restaurant/${restaurantId}`)
+    // .get(`http://localhost:3000/api/navbar/${restaurantId}`)
     .then(restaurant => {
       let { restaurantId, restaurantName, restaurantCuisine, location } = restaurant.data;
       this.setState({ 

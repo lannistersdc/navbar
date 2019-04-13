@@ -20,6 +20,14 @@
   .close {
     display: flex;
     justify-content: flex-end;
+    padding-top: 16px;
+    padding-right: 25px;
+  }
+  .close:hover {
+    cursor: pointer;
+    svg {
+      fill: black;
+    }
   }
   h3 {
     padding-top: 2.25rem;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import AutoSuggest from './AutoSuggest.jsx';
 import DayPicker from './DayPicker.jsx';
-
+import CloseSVG from '../svg/close.jsx';
 // CSS for component
 import styles from '../styles/search.module.scss';
 
@@ -30,8 +30,8 @@ export default class Search extends Component {
   
   fetchRestaurantData() {
     axios
-    // .get(`/restaurant`)
-    .get(`http://localhost:3000/api/navbar/`)
+    .get(`/restaurant`)
+    // .get(`http://localhost:3000/api/navbar/`)
     .then(restaurants => {
       let restaurantNames = restaurants.data.map(res => res.restaurantName);
       let restaurantCuisines = restaurants.data.map(res => res.restaurantCuisine);
@@ -111,8 +111,8 @@ export default class Search extends Component {
         {this.state.opened && 
           <div className={styles.header}>
 
-            <div className={styles.close}>
-              <button onClick={this.toggleSearch}><h6>X</h6></button>
+            <div className={styles.close} onClick={this.toggleSearch}>
+              <CloseSVG />
             </div>
 
             <div>
