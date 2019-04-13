@@ -56,7 +56,7 @@ export default class NavBar extends Component {
     let { restaurantName, restaurantCuisine, location } = this.state;
     location = location.split(', ');
     return (
-      <div>
+      <div className={styles.navbarBody}>
         {/* START OF PARENT DIV */}
         <Topbar />
 

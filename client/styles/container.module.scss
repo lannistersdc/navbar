@@ -11,8 +11,12 @@ body {
   // height: 10rem;
 }
 
-// container
+.navbarBody {
+  background-color: #FFF;
+  box-sizing: border-box;
+}
 
+// container
 .container {
   border-bottom: $border;
   display: flex;
