@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import pointsbar from '../pointsbar.png';
 import styles from '../styles/user.module.scss';
 
 export default class UserView extends Component {
@@ -71,25 +72,32 @@ export default class UserView extends Component {
           upcoming
         </div>
             
-        <div id="reservation-info" className={styles.dropdown}>
+        <div id="reservation-info" className={styles.dropdownUpcoming}>
 
                 <div className={styles.subheader}>
                   UPCOMING
                 </div>
 
-                <div className={styles.dropdownContent}>
-                  {restaurantName}
-                  <p>Table for {partySize} people</p>
-                  <p>{date} {time}</p>
+                <div className={styles.reservationInfo}>
+                  <div className={styles.resName}>
+                    <a href="#">{restaurantName} - Los Angeles</a>
+                  </div>
 
-                  <a href="#">Invite</a>
-                  <a href="#">View</a>
-                  <a href="#">Modify</a>
-                  <a href="#">Cancel</a>
+                  <div className={styles.resDetails}>Table for {partySize} people</div>
+                  <div className={styles.resDetails}>{date} {time}</div>
+
+                  <div className={styles.resLinks}>
+                    <a href="#" className={styles.invite}>Invite</a>
+                    <a href="#" className={styles.rightlinks}>View</a>
+                    <a href="#" className={styles.rightlinks}>Modify</a>
+                    <a href="#" className={styles.rightlinks}>Cancel</a>
+                  </div>
                 </div>
 
                 <div>
-                  <h5>View All</h5>
+                  <div className={styles.viewAll}>    
+                    <a href="#">View All</a>
+                  </div>
                 </div>
 
         </div>
@@ -117,16 +125,43 @@ export default class UserView extends Component {
         <div id="user-options" className={styles.dropdownUser}>
 
                 <div className={styles.subheader}>
-                  <p>point information</p>
+
+                  <div className={styles.pointsLine1}>
+                    <div>
+                      Earned
+                    </div>
+                    <div>
+                      Next Reward
+                    </div>
+                  </div>
+
+                  <div className={styles.pointsLine2}>
+                    <div className={styles.pointsInfo}>
+                      <div className={styles.pointsNum}>100</div>
+                      <div className={styles.pointsPTS}>PTS</div>
+                    </div>
+                    <div className={styles.pointsInfo}>
+                      <div className={styles.pointsNum}>2000</div>
+                      <div className={styles.pointsPTS}>PTS</div>
+                    </div>
+                  </div>
+
+                  <div className={styles.pointsBar}>
+                    <img src={pointsbar} alt="points" />
+                  </div>
+
+                  <div className={styles.pointsLink}>
+                    <a href="#">Learn more about points</a>
+                  </div>
+
                 </div>
 
-                <div className={styles.dropdownContent}>
+                <div className={styles.userMenu}>
                   
-                  <li><a href="#">My Profile</a></li><br />
-                  <li><a href="#">My Dining History</a></li><br />
-                  <li><a href="#">My Saved Restaurants</a></li><br />
-                  <li><a href="#">My Profile</a></li><br />
-                  <li><a href="#">Signout</a></li><br />
+                  <div><a href="#">My Profile</a></div>
+                  <div><a href="#">My Dining History</a></div>
+                  <div><a href="#">My Saved Restaurants</a></div>
+                  <div><a href="#">Signout</a></div>
                   
                 </div>
 
