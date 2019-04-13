@@ -22,11 +22,12 @@ export default class NavBar extends Component {
       location: ''
     }
     this.fetchRestaurant = this.fetchRestaurant.bind(this);
+    this.getRandomId = this.getRandomId.bind(this);
   }
 
   componentDidMount() {
-    // console.log(this.props.restaurantId)
-    let restaurantId = this.state.restaurantId ? this.state.restaurantId : 1;
+    // let restaurantId = this.state.restaurantId ? this.state.restaurantId : 1;
+    let restaurantId = this.state.restaurantId ? this.state.restaurantId : this.getRandomId();
     this.fetchRestaurant(restaurantId);
     // determine if user is logged in or not
   }
@@ -34,7 +35,8 @@ export default class NavBar extends Component {
 
   fetchRestaurant(restaurantId) {
     axios
-    .get(`/restaurant/${restaurantId}`)
+    // .get(`/restaurant/${restaurantId}`)
+    .get(`http://localhost:3000/api/navbar/${restaurantId}`)
     .then(restaurant => {
       let { restaurantId, restaurantName, restaurantCuisine, location } = restaurant.data;
       this.setState({ 
@@ -44,6 +46,10 @@ export default class NavBar extends Component {
         location
       }, () => console.log(this.state));
     })
+  }
+
+  getRandomId() {
+    return Math.floor(Math.random() * Math.floor(101));
   }
 
   render() {

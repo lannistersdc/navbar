@@ -30,7 +30,8 @@ export default class Search extends Component {
   
   fetchRestaurantData() {
     axios
-    .get('/restaurant')
+    // .get(`/restaurant`)
+    .get(`http://localhost:3000/api/navbar/`)
     .then(restaurants => {
       let restaurantNames = restaurants.data.map(res => res.restaurantName);
       let restaurantCuisines = restaurants.data.map(res => res.restaurantCuisine);
