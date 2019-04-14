@@ -23,7 +23,6 @@ export default class LocationPicker extends Component {
   
   fetchLocations() {
     axios
-    // .get(`/restaurant`)
     .get(`http://localhost:3000/api/navbar/`)
     .then(restaurants => {
       let array = restaurants.data.map(res => res.location.split(', '))
