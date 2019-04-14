@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/api', router)
+app.use('/api', router)
 
 app.listen(port, () => {
   console.log(`----- Server running at: http://localhost:${port} -----`);
