@@ -104,7 +104,7 @@ export default class UserView extends Component {
 
         <div className={styles.welcome} onClick={this.toggleUserMenuOpened}>
           <div className={styles.helloUser}>
-            Hi, Liezel
+            Hello!
           </div>
           <div className={styles.arrow}>
             <svg

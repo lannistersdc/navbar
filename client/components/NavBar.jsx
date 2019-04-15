@@ -43,7 +43,7 @@ export default class NavBar extends Component {
         restaurantName,
         restaurantCuisine,
         location
-      });
+      }, () => console.log(this.state));
     })
   }
 
@@ -57,7 +57,9 @@ export default class NavBar extends Component {
     return (
       <div className={styles.navbarBody}>
         {/* START OF PARENT DIV */}
-        <Topbar />
+        <div className={styles.Topbar}>
+          <Topbar />
+        </div>
 
         <div className={styles.container}>
 
@@ -65,7 +67,7 @@ export default class NavBar extends Component {
                   <Logo />
                 </div>
                 
-                <div className={styles.componentWithBorder+ ' ' + styles.LocationPicker}>
+                <div className={styles.LocationPicker}>
                   <LocationPicker region={location[1]} city={location[0]}/>
                 </div>
 

@@ -23,67 +23,56 @@ body {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  height: 57px;
-  padding-left: 1.25rem;
+  height: 50px;
+  padding-left: 2.25rem;
   padding-right: 1.25rem;
   padding-bottom: 5px;
   line-height: 16px;
-  .componentWithBorder {
+  .Logo {
+    border: $devborder;
+    display: flex;
+    justify-content: center;
+    width: 8.50rem;
+    padding-right: 2rem;
+  }
+  
+  .LocationPicker {
+    border: $devborder;
+    margin-right: auto;
+    padding-right: 20px;
     border-left: $border;
     border-right: $border;
     height: 48px;
     padding-bottom: .6rem;
   }
-}
-
-.Logo {
-  border: $devborder;
-  display: flex;
-  justify-content: center;
-  width: 8.50rem;
-  // padding-left: 2rem;
-  padding-right: 2rem
-  // height: 3.375rem;
-}
-
-.LocationPicker {
-  border: $devborder;
-  margin-right: auto;
-  // padding-left: 1.5rem;
-  padding-right: 20px;
-  // padding: 0 1rem 0 0;
-  // height: 3.375rem;
-  // position: absolute;
-  // right: 0;
-}
-
-// UserView.jsx
-
-.UserView {
-  border: $devborder;
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: flex-end;
   
-}
-
-.GuestView {
-  border: $devborder;
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: flex-end;
-  li {
-    display: inline;
+  // UserView.jsx
+  
+  .UserView {
+    border: $devborder;
+  }
+  
+  .GuestView {
+    border: $devborder;
+    li {
+      display: inline;
+    }
+  }
+  
+  // Search
+  
+  .Search {
+    border: $devborder;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }
 
-// Search
-
-.Search {
-  border: $devborder;
-  padding-left: 12px;
-  padding-right: 12px;
+.Topbar {
+  display: block;
 }
+
+
 
 
 // Breadcrumb
