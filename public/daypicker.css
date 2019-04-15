@@ -46,6 +46,10 @@
   border-bottom: 1px solid rgba(0,0,0,.08);
 }
 
+.navBarCalendar .CalendarMonth_table.CalendarMonth_table_1 {
+  margin-top: 10px;
+}
+
 .navBarCalendar .CalendarDay__default {
   /* border: #da3743; */
   border: none;
