@@ -47,7 +47,7 @@ export default class Search extends Component {
       restaurantCuisines,
       metros,
       regions
-      }, () => console.log(this.state))
+      })
     })
   }
 

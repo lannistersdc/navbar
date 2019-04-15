@@ -43,7 +43,7 @@ export default class NavBar extends Component {
         restaurantName,
         restaurantCuisine,
         location
-      }, () => console.log(this.state));
+      });
     })
   }
 

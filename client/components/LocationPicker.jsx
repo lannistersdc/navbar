@@ -36,7 +36,7 @@ export default class LocationPicker extends Component {
       this.setState({
         metros,
         regions
-      }, () => console.log(this.state))
+      })
     })
   }
 
