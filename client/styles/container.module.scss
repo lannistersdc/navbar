@@ -29,18 +29,21 @@ body {
   padding-bottom: 5px;
   line-height: 16px;
   .Logo {
-    border: $devborder;
     display: flex;
-    justify-content: center;
-    width: 8.50rem;
-    padding-right: 2rem;
+    /* justify-content: center; */
+    width: 11.5rem;
+    /* padding-right: 3rem; */
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 5px;
+    .logoImg {
+      display: block;
+    }
   }
   
   .LocationPicker {
     border: $devborder;
     margin-right: auto;
     padding-right: 20px;
-    border-left: $border;
     border-right: $border;
     height: 48px;
     padding-bottom: .6rem;
