@@ -13,7 +13,6 @@ export default class GuestView extends Component {
   toggleSignUp(e) {
     // pop up signup
     e.preventDefault();
-    console.log('sign up clicked');
 
     // also if user clicks outside of usermenu, close menu
   }
@@ -21,7 +20,6 @@ export default class GuestView extends Component {
   toggleLogin(e) {
     // pop up login
     e.preventDefault();
-    console.log('log in clicked')
 
     // also if user clicks outside of usermenu, close menu
   }

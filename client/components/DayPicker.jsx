@@ -16,13 +16,6 @@ export default class DayPicker extends Component {
     this.onFocusChange = this.onFocusChange.bind(this);
   }
 
-  // componentDidMount() {
-  //   let date = (new Date()).toDateString();
-  //   this.setState({
-  //     date
-  //   }, () => console.log(this.state.date));
-  // }
-
   onDateChange(date) {
     this.setState({ date });
   }

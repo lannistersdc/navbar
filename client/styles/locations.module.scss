@@ -25,6 +25,10 @@ $selected-color: #237b98;
 .arrow {
   padding-top: 27px;
   padding-left: 10px;
+  opacity: 0.4;
+  img {
+    padding-bottom: 6px;
+  }
 }
 
 .subheader {
@@ -49,7 +53,7 @@ $selected-color: #237b98;
   padding: 0px; 
   z-index: 2000;
   .overflowMetro {
-    padding: 0px; 
+    padding-right: 10px;
     width: 317px; 
     height: 400px;
     z-index: 1;
@@ -66,6 +70,11 @@ $selected-color: #237b98;
       text-overflow: ellipsis;
       padding: .8rem 1rem;
       position: relative;
+      background: url(https://s3-us-west-1.amazonaws.com/hrla28opentablefec/keyboard-right-arrow-button.svg) no-repeat;
+      background-position: right;
+      background-size: 3%;
+      background-blend-mode: lighten;
+      background-color: rgba(255, 255, 255, 0.6);
       .selector {
         color: #999!important;
         border-left: 3px solid transparent;
@@ -76,16 +85,33 @@ $selected-color: #237b98;
     }
     .selected {
       color: $selected-color!important;
-      background: #eef4fb!important;
-      border-color: $selected-color;
+      border-color: $selected-color!important;
+      background: url(https://s3-us-west-1.amazonaws.com/hrla28opentablefec/keyboard-right-arrow-button.svg) no-repeat;
+      background-position: right;
+      background-size: 3%;
+      background-blend-mode: lighten;
+      padding-right: 0px;
+      background-color: rgba(238, 244, 251, 0.6);
     }
     li:hover {
       color: $selected-color!important;
-      background: #eef4fb;
-      border-color: $selected-color
+      border-color: $selected-color!important;
+      background: url(https://s3-us-west-1.amazonaws.com/hrla28opentablefec/keyboard-right-arrow-button.svg) no-repeat;
+      background-position: right;
+      background-size: 3%;
+      background-blend-mode: lighten;
+      padding-right: 0px;
+      background-color: rgba(238, 244, 251, 0.6);
     }
   }
+  .overflowMetro div li:hover {
+    background-color: rgba(238, 244, 251, 0.6);
+  }
   .overflowRegion {
-    border-left: $border
+    border-left: $border;
+    padding-right: 10px;
+  }
+  .overflowRegion div li:hover  {
+    background-color: rgba(238, 244, 251, 0.6);
   }
 }

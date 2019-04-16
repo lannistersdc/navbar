@@ -26,6 +26,10 @@
 }
 
 .arrow {
-  padding-top: 32px;
+  background-color: transparent;
+  padding-top: 20px;
   padding-left: 5px;
+  img {
+    opacity: 0.4;
+  }
 }

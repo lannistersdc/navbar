@@ -56,7 +56,7 @@ export default class Search extends Component {
     let opened = !this.state.opened
     this.setState({ 
       opened 
-    }, () => console.log(`Search opened: ${this.state.opened}`))
+    })
   }
 
   handleFindTableButton(e) {

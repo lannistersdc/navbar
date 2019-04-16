@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ArrowDown from '../svg/arrow-down.jsx';
 import styles from '../styles/topbar.module.scss';
 
 export default class Topbar extends Component {
@@ -11,14 +10,18 @@ export default class Topbar extends Component {
           </div>
           <div className={styles.linkWithArrow}>
             <div><a href="#">Mobile</a></div>
-            <div className={styles.arrow}><ArrowDown /></div>
+            <div className={styles.arrow}>
+              <img src="https://s3-us-west-1.amazonaws.com/hrla28opentablefec/arrow.svg"/>
+            </div>
           </div>
           <div>
             <a href="#" style={{paddingRight: "16px"}}>Help</a>
           </div>
           <div className={styles.linkWithArrow}>
             <div><a href="#">EN</a></div>
-            <div className={styles.arrow}><ArrowDown /></div>
+            <div className={styles.arrow}>
+              <img src="https://s3-us-west-1.amazonaws.com/hrla28opentablefec/arrow.svg"/>
+          </div>
           </div>
         </div>
     )

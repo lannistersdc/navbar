@@ -24,7 +24,7 @@ export default class AutoSuggest extends Component {
   onChange(e, { newValue }) {
     this.setState({ 
       value: newValue 
-    }, () => console.log(this.state.value))
+    })
   }
 
   getSuggestions(value) {

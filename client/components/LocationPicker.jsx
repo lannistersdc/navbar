@@ -64,7 +64,7 @@ export default class LocationPicker extends Component {
             {region}
           </div>
           <div className={styles.arrow}>
-            <ArrowDown />
+            <img src="https://s3-us-west-1.amazonaws.com/hrla28opentablefec/arrow.svg"/>
           </div>
         </div>
 

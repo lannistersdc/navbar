@@ -29,9 +29,22 @@ $devborder: 1px solid rgb(170, 0, 255);
     border-left: 1px solid rgba(0,0,0,.08);
     height: 18px;
     color: #333;
+    font-weight: 500;
   }
   .arrow {
-    padding-top: 28px;
+    padding-top: 18px;
+    padding-left: 10px;
+    img {
+      opacity: 0.4;
+    }
+  }
+  .helloUser:hover {
+    color: black;
+    cursor: pointer;
+  }
+  .arrow:hover {
+    color: black;
+    cursor: pointer;
   }
 }
 
