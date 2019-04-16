@@ -1,7 +1,12 @@
 
 .navBarCalendar .DateInput_input {
   padding-left: .5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08)
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  color: #212529;
+  font-size: 16px;
+  font-stretch: 100%;
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-weight: 500;
 }
 
 .navBarCalendar .DateInput_input::placeholder {
@@ -12,14 +17,22 @@
   font-weight: 500;
 }
 
+.navBarCalendar .DateInput_fang.DateInput_fang_1 {
+  top: 56px!important;
+}
+
 .navBarCalendar .DayPickerNavigation_button__horizontalDefault {
   border: none;
-  background: url(./arrow.svg);
+  background: url(https://s3-us-west-1.amazonaws.com/hrla28opentablefec/arrow.svg);
   top: 1.75rem;
 }
 
+.navBarCalendar .DayPickerNavigation_button__default:hover {
+  border: none !important;
+}
+
 .navBarCalendar .DayPickerNavigation_svg__horizontal {
-  fill: #da3743;
+  /* fill: #da3743; */
   display: none;
 }
 
@@ -29,6 +42,7 @@
 
 .navBarCalendar .DayPickerNavigation_button.DayPickerNavigation_button_1.DayPickerNavigation_button__default.DayPickerNavigation_button__default_2.DayPickerNavigation_button__horizontal.DayPickerNavigation_button__horizontal_3.DayPickerNavigation_button__horizontalDefault.DayPickerNavigation_button__horizontalDefault_4.DayPickerNavigation_rightButton__horizontalDefault.DayPickerNavigation_rightButton__horizontalDefault_5 {
   transform: rotate(270deg);
+  top: 19px!important;
 }
 
 .navBarCalendar .DayPickerNavigation_button__default:hover {
@@ -59,10 +73,19 @@
   border-radius: 100%;
 }
 
-/* .navBarCalendar .today {
+.navBarCalendar .CalendarDay.CalendarDay_1.CalendarDay__default.CalendarDay__default_2.CalendarDay__today.CalendarDay__today_3 {
   color: black;
   background: rgba(0,0,0,.06);
-} */
+  border: rgba(0,0,0,.06);
+}
+
+.navBarCalendar .CalendarDay.CalendarDay_1.CalendarDay__default.CalendarDay__default_2.CalendarDay__today.CalendarDay__today_3:hover {
+  color: #da3743;
+  cursor: pointer;
+  background: #f7d7d9;
+  border: #f7d7d9;
+  border-radius: 100%;
+}
 
 .navBarCalendar .CalendarDay__selected {
   background: #da3743;
@@ -70,10 +93,6 @@
   border-radius: 100%;
   color: #fff;
   margin: 0 auto;
-  /* width: 2rem;
-  height: 2rem;
-  line-height: 1.95;
-  text-align: center; */
 }
 
 .navBarCalendar .CalendarDay__default:hover {
