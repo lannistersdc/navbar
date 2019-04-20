@@ -11,6 +11,32 @@ const controller = {
     let { restaurantId } = req.params;
     Result.findOne({ restaurantId })
     .then(results => res.send(results));
+  },
+
+  addOne: () => {
+    Result.create(req.body)
+    .then(() => { res.status(201).send('added a new location'); })
+    .catch(error => console.error(error));
+  },
+
+  deleteAll: () => {
+    Result.deleteMany({})
+    .then(() => res.status(202).send("Database Cleared"))
+    .catch((error) => console.error(error));
+  },
+
+  deleteOne: () => {
+    let { restaurantId } = req.params;
+    Result.findOneAndRemove({ restaurantId })
+      .then((data) => res.status(202).send(data))
+      .catch((error) => console.error(error));
+  },
+
+  updateOne: () => {
+    let { restaurantId } = req.params;
+    Result.findOneAndUpdate({ restaurantId }, req.body, { returnNewDocument: true })
+    .then((data) => {res.status(200).send(data);})
+    .catch((error) => console.error(error));
   }
 
 }
