@@ -10,7 +10,7 @@
     "start": "nodemon server/index.js",
     "test": "mocha test",
     "build": "webpack -d --watch",
-    "seed": "node database/seed.js"
+    "seed": "node database/seed10mil.js"
   },
   "license": "UNLICENSED",
   "repository": "https://github.com/hrla28-open-table-app/navbar",
@@ -28,6 +28,7 @@
     "webpack-cli": "^3.3.0"
   },
   "dependencies": {
+    "Faker": "^0.7.2",
     "acorn": "^6.1.1",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
