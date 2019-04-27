@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('./controller.js');
+// const controller = require('./controller.js');
+const controller = require('./pg_controller.js')
 
 // router.route('/navbar')
 //   .get(controller.getAll)
@@ -9,12 +10,12 @@ const controller = require('./controller.js');
 //   .get(controller.getOne)
 
 router.route('/navbar')
-  .get(controller.getAll)
+  .get(controller.getResults)
   .post(controller.addOne)
   .delete(controller.deleteAll);
 
 router.route('/navbar/:restaurantId')
-  .get(controller.getOne)
+  // .get(controller.getOne)
   .put(controller.updateOne)
   .delete(controller.deleteOne);
 
