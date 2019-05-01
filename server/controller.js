@@ -10,7 +10,8 @@ const controller = {
   getResults: (req, res) => {
     var queryStr = new RegExp(`${req.body.queryStr}`, 'i');
     Result.find({location:{$regex:queryStr}}).limit(15)
-    .then(results => res.send(results.location));
+    .then(results => res.send(results))
+    .catch(err => res.status(404).send('anystring'))
     },
 
   getOne: (req, res) => {
