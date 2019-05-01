@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-// const controller = require('./controller.js');
-const controller = require('./pg_controller.js')
+const controller = require('./controller.js');
 
 // router.route('/navbar')
 //   .get(controller.getAll)

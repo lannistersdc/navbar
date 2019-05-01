@@ -1,11 +1,17 @@
 const Result = require('../database/index.js')
 
 const controller = {
-  getAll: (req, res) => {
-  Result.find()
-  // .sort( { restaurantId: -1 } )
-  .then(results => res.send(results));
-  },
+  // getAll: (req, res) => {
+  // Result.find()
+  // // .sort( { restaurantId: -1 } )
+  // .then(results => res.send(results));
+  // },
+
+  getResults: (req, res) => {
+    var queryStr = new RegExp(`${req.body.queryStr}`, 'i');
+    Result.find({location:{$regex:queryStr}}).limit(15)
+    .then(results => res.send(results.location));
+    },
 
   getOne: (req, res) => {
     let { restaurantId } = req.params;

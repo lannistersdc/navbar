@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/navBar', () => console.log('~~~~~~~~~~ NavBar Database Connected ~~~~~~~~~~'))
+mongoose.connect('mongodb://localhost/navbar', () => console.log('~~~~~~~~~~ NavBar Database Connected ~~~~~~~~~~'))
 
 const navBarSchema = mongoose.Schema ({
   restaurantId: Number,
