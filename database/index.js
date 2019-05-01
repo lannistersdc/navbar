@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/navbar', () => console.log('~~~~~~~~~~ NavBar Database Connected ~~~~~~~~~~'))
+mongoose.connect('mongodb://admin:myadminpassword@54.153.6.178:3002/navbar', () => console.log('~~~~~~~~~~ NavBar Database Connected ~~~~~~~~~~'))
 
 const navBarSchema = mongoose.Schema ({
   restaurantId: Number,
@@ -14,3 +14,4 @@ const navBarSchema = mongoose.Schema ({
 const Result = mongoose.model('results', navBarSchema)
 
 module.exports = Result;
+
