@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/api', router);
 app.use('/loaderio-106be6d691ff7b4da7b812d6be8a8e98', (req, res) => {
-  res.status(200).send('loaderio-106be6d691ff7b4da7b812d6be8a8e98');
+  res.status(200).send('loaderio-106be6d691ff7b4da7b812d6be8a8e98')
 })
 
 app.listen(port, () => {
