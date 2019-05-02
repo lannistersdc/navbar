@@ -1,7 +1,7 @@
 const pg = require('pg');
 
 // const connectionString = 'postgresql://localhost:5432/navbar';
-const connectionString = 'postgresql://postgres:password@13.57.237.221:5432/navbar';
+const connectionString = 'postgresql://postgres:password@13.56.163.228:5432/navbar';
 const pool = new pg.Pool({ connectionString });
 
 pool
