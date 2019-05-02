@@ -4,7 +4,7 @@ const controller = {
 
   getResults: (req, res) => {
     // assuming the client's query gets passed into the controller via req.body
-    var text = 'SELECT DISTINCT location FROM results WHERE location ILIKE $1 LIMIT 10;';
+    var text = 'SELECT DISTINCT location FROM results WHERE location ILIKE $1 LIMIT 5;';
     // let values = [('%' + req.body.queryStr + '%')];
     let values = [('%' + req.query.q + '%')];
     pool.query(text, values)
